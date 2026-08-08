@@ -283,6 +283,7 @@ function registerPluginsOnce(){
     id: 'endLabels',
     afterDatasetsDraw(chart){
       const {ctx} = chart;
+      const items = [];
       chart.data.datasets.forEach((ds,i)=>{
         const meta = chart.getDatasetMeta(i);
         if(!meta || meta.hidden) return;
@@ -291,43 +292,66 @@ function registerPluginsOnce(){
         if(lastIdx===-1) return;
         const point = meta.data[lastIdx];
         if(!point) return;
-        ctx.save();
-        ctx.font = "600 9.5px 'Inter', sans-serif";
-        ctx.fillStyle = ds.borderColor;
-        ctx.textBaseline = 'middle';
-        ctx.textAlign = 'left';
-        ctx.fillText(ds.label, point.x + 6, point.y);
-        ctx.restore();
+        items.push({ y: point.y, x: point.x, text: ds.label, color: ds.borderColor });
       });
+      // anti-colisão: ordena por posição vertical e impõe espaçamento mínimo entre etiquetas
+      items.sort((a,b)=>a.y-b.y);
+      const MIN_GAP = 13;
+      for(let k=1;k<items.length;k++){
+        if(items[k].y - items[k-1].y < MIN_GAP){
+          items[k].y = items[k-1].y + MIN_GAP;
+        }
+      }
+      ctx.save();
+      ctx.font = "600 9px 'Inter', sans-serif";
+      ctx.textBaseline = 'middle';
+      ctx.textAlign = 'left';
+      items.forEach(it=>{
+        ctx.fillStyle = it.color;
+        ctx.fillText(it.text, it.x + 6, it.y);
+      });
+      ctx.restore();
     }
   });
   Chart.register({
     id: 'valueLabels',
     afterDatasetsDraw(chart){
-      const nDatasets = chart.data.datasets.filter((ds,i)=>{ const m=chart.getDatasetMeta(i); return m && !m.hidden; }).length;
+      const visibleDatasets = chart.data.datasets
+        .map((ds,i)=>({ds,i}))
+        .filter(({i})=>{ const m=chart.getDatasetMeta(i); return m && !m.hidden; });
       const nPoints = chart.data.labels.length;
-      if(nDatasets===0 || nPoints===0) return;
-      if(nDatasets * nPoints > 40) return; // evita ruído quando há demasiados valores para mostrar
+      if(visibleDatasets.length===0 || nPoints===0) return;
+      if(visibleDatasets.length * nPoints > 40) return; // evita ruído quando há demasiados valores para mostrar
       const {ctx} = chart;
-      let dsIndex = 0;
-      chart.data.datasets.forEach((ds,i)=>{
-        const meta = chart.getDatasetMeta(i);
-        if(!meta || meta.hidden) return;
-        // desfasamento vertical por série para reduzir sobreposição entre linhas próximas
-        const stagger = [ -6, 12, -18, 6, -12 ][dsIndex % 5];
-        dsIndex++;
-        meta.data.forEach((point, idx)=>{
+      ctx.save();
+      ctx.font = "600 8.5px 'IBM Plex Mono', monospace";
+      ctx.textAlign = 'center';
+      // para cada ponto no eixo X, resolve colisões entre as etiquetas das várias séries nesse ponto
+      for(let idx=0; idx<nPoints; idx++){
+        const col = [];
+        visibleDatasets.forEach(({ds,i})=>{
           const v = ds.data[idx];
           if(v===null || v===undefined) return;
-          ctx.save();
-          ctx.font = "600 9px 'IBM Plex Mono', monospace";
-          ctx.fillStyle = ds.borderColor;
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'bottom';
-          ctx.fillText(Math.round(v), point.x, point.y + stagger);
-          ctx.restore();
+          const meta = chart.getDatasetMeta(i);
+          const point = meta.data[idx];
+          if(!point) return;
+          col.push({ y: point.y - 6, x: point.x, text: String(Math.round(v)), color: ds.borderColor });
         });
-      });
+        col.sort((a,b)=>a.y-b.y);
+        const MIN_GAP = 10;
+        // ajusta de baixo para cima para manter etiquetas acima do respetivo ponto sem sobrepor
+        for(let k=col.length-2;k>=0;k--){
+          if(col[k+1].y - col[k].y < MIN_GAP){
+            col[k].y = col[k+1].y - MIN_GAP;
+          }
+        }
+        col.forEach(it=>{
+          ctx.fillStyle = it.color;
+          ctx.textBaseline = 'bottom';
+          ctx.fillText(it.text, it.x, it.y);
+        });
+      }
+      ctx.restore();
     }
   });
   pluginsRegistered = true;
