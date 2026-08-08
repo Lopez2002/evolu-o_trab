@@ -20,7 +20,15 @@
       if(i >= sources.length){ window.__chartFailed = true; document.dispatchEvent(new Event('chartlibdone')); return; }
       var s = document.createElement('script');
       s.src = sources[i];
-      s.onload = function(){ window.__chartReady = true; document.dispatchEvent(new Event('chartlibdone')); };
+      s.onload = function(){
+        if (typeof Chart !== 'undefined') {
+          window.__chartReady = true;
+          document.dispatchEvent(new Event('chartlibdone'));
+        } else {
+          // O pedido "respondeu" mas veio vazio (bloqueio silencioso tipo Tracking Prevention) — tenta a fonte seguinte.
+          tryNext(i+1);
+        }
+      };
       s.onerror = function(){ tryNext(i+1); };
       document.head.appendChild(s);
     }
