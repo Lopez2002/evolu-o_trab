@@ -93,7 +93,8 @@
     margin:0 0 2px;letter-spacing:.01em;
   }
   .panel .sub{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--steel);margin-bottom:8px;display:block;}
-  .chartwrap{position:relative;height:420px;}
+  .chartwrap{position:relative;height:520px;overflow-x:auto;overflow-y:hidden;}
+  .chartinner{position:relative;height:100%;}
   canvas{max-width:100%;}
 
   footer{
@@ -102,7 +103,7 @@
   }
 
   @media (max-width:700px){
-    .chartwrap{height:300px;}
+    .chartwrap{height:380px;}
     .filterbar .flabel{min-width:auto;width:100%;margin-bottom:-4px;}
   }
   .loading, .errbox{padding:40px 0;font-family:'IBM Plex Mono',monospace;color:var(--steel);text-align:center;}
@@ -321,7 +322,6 @@ function registerPluginsOnce(){
         .filter(({i})=>{ const m=chart.getDatasetMeta(i); return m && !m.hidden; });
       const nPoints = chart.data.labels.length;
       if(visibleDatasets.length===0 || nPoints===0) return;
-      if(visibleDatasets.length * nPoints > 40) return; // evita ruído quando há demasiados valores para mostrar
       const {ctx} = chart;
       ctx.save();
       ctx.font = "600 8.5px 'IBM Plex Mono', monospace";
@@ -380,7 +380,9 @@ function buildDatasets(map, keys){
 function drawChart(labels, datasets){
   registerPluginsOnce();
   const wrap = document.getElementById('chartwrap');
-  wrap.innerHTML = '<canvas id="lineChart"></canvas>';
+  // largura mínima por ponto para os valores terem espaço — permite scroll horizontal em vez de espremer
+  const minWidth = Math.max(wrap.clientWidth, labels.length * 46 + 90);
+  wrap.innerHTML = `<div class="chartinner" style="min-width:${minWidth}px;"><canvas id="lineChart"></canvas></div>`;
   if(typeof Chart === 'undefined'){
     wrap.innerHTML = '<div class="errbox">Não foi possível carregar a biblioteca de gráficos (rede bloqueou todas as fontes tentadas). Fala com o teu departamento de TI, ou abre o site noutra rede/navegador.</div>';
     return;
@@ -392,7 +394,7 @@ function drawChart(labels, datasets){
     data:{ labels, datasets },
     options:{
       responsive:true, maintainAspectRatio:false,
-      layout:{ padding:{ right:82, top:16 } },
+      layout:{ padding:{ right:82, top:26, bottom:4 } },
       interaction:{ mode:'index', intersect:false },
       plugins:{ legend:{ display:false }, tooltip:{
         titleFont:{family:"'IBM Plex Mono'",size:12}, bodyFont:{family:"'IBM Plex Mono'",size:12}
