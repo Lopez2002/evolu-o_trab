@@ -93,7 +93,7 @@
     margin:0 0 2px;letter-spacing:.01em;
   }
   .panel .sub{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--steel);margin-bottom:8px;display:block;}
-  .chartwrap{position:relative;height:560px;}
+  .chartwrap{position:relative;height:420px;}
   canvas{max-width:100%;}
 
   footer{
@@ -101,8 +101,8 @@
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
   }
 
-  @media (max-width:900px){
-    .chartwrap{height:420px;}
+  @media (max-width:700px){
+    .chartwrap{height:300px;}
     .filterbar .flabel{min-width:auto;width:100%;margin-bottom:-4px;}
   }
   .loading, .errbox{padding:40px 0;font-family:'IBM Plex Mono',monospace;color:var(--steel);text-align:center;}
@@ -185,8 +185,11 @@ let RAW = null;
 let activeTab = 'diaria';
 let activeCats = new Set(CAT_ORDER);
 let activeMonths = new Set();
+let monthOrder = [];
+let monthsCustomized = false;
 let mainChart = null;
 let pluginsRegistered = false;
+const DIARIA_TARGET_DIAS = 22;
 
 function fmtDateShort(iso){
   const d = new Date(iso+'T00:00:00');
@@ -206,8 +209,8 @@ async function boot(){
 
   const order=[]; const seen=new Set();
   RAW.registos.forEach(r=>{ if(!seen.has(r.mes)){seen.add(r.mes); order.push(r.mes);} });
-  activeMonths = new Set([order[order.length-1]]);
-  populateMesChips(order);
+  monthOrder = order;
+  applyDefaultMonthsForTab();
   populateCatChips();
   updateStamp();
 
@@ -216,12 +219,21 @@ async function boot(){
   else{ document.addEventListener('chartlibdone', ()=>render(), {once:true}); }
 }
 
-function populateMesChips(order){
+function applyDefaultMonthsForTab(){
+  monthsCustomized = false;
+  if(activeTab==='mensal'){ activeMonths = new Set(monthOrder); }
+  else if(activeTab==='semanal'){ activeMonths = new Set(monthOrder.slice(-4)); }
+  else{ activeMonths = new Set([monthOrder[monthOrder.length-1]]); }
+  renderMesChips();
+}
+
+function renderMesChips(){
   const row = document.getElementById('chipRowMes');
-  row.innerHTML = order.map(m=>`<button class="chip ${activeMonths.has(m)?'active':''}" data-mes="${m}">${m}</button>`).join('');
+  row.innerHTML = monthOrder.map(m=>`<button class="chip ${activeMonths.has(m)?'active':''}" data-mes="${m}">${m}</button>`).join('');
   row.querySelectorAll('.chip').forEach(btn=>{
     btn.addEventListener('click', ()=>{
       const m = btn.dataset.mes;
+      monthsCustomized = true;
       if(activeMonths.has(m)){ if(activeMonths.size>1){ activeMonths.delete(m); btn.classList.remove('active'); } }
       else{ activeMonths.add(m); btn.classList.add('active'); }
       render();
@@ -256,6 +268,7 @@ document.querySelectorAll('nav.tabs button').forEach(btn=>{
     document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
     activeTab = btn.dataset.tab;
+    applyDefaultMonthsForTab();
     render();
   });
 });
@@ -279,11 +292,11 @@ function registerPluginsOnce(){
         const point = meta.data[lastIdx];
         if(!point) return;
         ctx.save();
-        ctx.font = "600 13px 'Inter', sans-serif";
+        ctx.font = "600 9.5px 'Inter', sans-serif";
         ctx.fillStyle = ds.borderColor;
         ctx.textBaseline = 'middle';
         ctx.textAlign = 'left';
-        ctx.fillText(ds.label, point.x + 8, point.y);
+        ctx.fillText(ds.label, point.x + 6, point.y);
         ctx.restore();
       });
     }
@@ -291,20 +304,27 @@ function registerPluginsOnce(){
   Chart.register({
     id: 'valueLabels',
     afterDatasetsDraw(chart){
-      if(chart.data.labels.length > 24) return; // evita ruído quando há muitos pontos
+      const nDatasets = chart.data.datasets.filter((ds,i)=>{ const m=chart.getDatasetMeta(i); return m && !m.hidden; }).length;
+      const nPoints = chart.data.labels.length;
+      if(nDatasets===0 || nPoints===0) return;
+      if(nDatasets * nPoints > 40) return; // evita ruído quando há demasiados valores para mostrar
       const {ctx} = chart;
+      let dsIndex = 0;
       chart.data.datasets.forEach((ds,i)=>{
         const meta = chart.getDatasetMeta(i);
         if(!meta || meta.hidden) return;
+        // desfasamento vertical por série para reduzir sobreposição entre linhas próximas
+        const stagger = [ -6, 12, -18, 6, -12 ][dsIndex % 5];
+        dsIndex++;
         meta.data.forEach((point, idx)=>{
           const v = ds.data[idx];
           if(v===null || v===undefined) return;
           ctx.save();
-          ctx.font = "600 10.5px 'IBM Plex Mono', monospace";
+          ctx.font = "600 9px 'IBM Plex Mono', monospace";
           ctx.fillStyle = ds.borderColor;
           ctx.textAlign = 'center';
           ctx.textBaseline = 'bottom';
-          ctx.fillText(v, point.x, point.y - 7);
+          ctx.fillText(Math.round(v), point.x, point.y + stagger);
           ctx.restore();
         });
       });
@@ -328,7 +348,7 @@ function buildDatasets(map, keys){
   return CAT_ORDER.filter(c=>activeCats.has(c)).map(cat=>({
     label:cat, data:keys.map(k=> (map.get(k)||{})[cat] ?? null),
     borderColor:COLORS[cat], backgroundColor:COLORS[cat],
-    tension:.25, pointRadius:3, pointHoverRadius:5, borderWidth: cat==='Total Em Obra'?3:2.25,
+    tension:.25, pointRadius:0, pointHoverRadius:4, pointHitRadius:10, borderWidth: cat==='Total Em Obra'?3:2.25,
     spanGaps:true
   }));
 }
@@ -348,7 +368,7 @@ function drawChart(labels, datasets){
     data:{ labels, datasets },
     options:{
       responsive:true, maintainAspectRatio:false,
-      layout:{ padding:{ right:130, top:20 } },
+      layout:{ padding:{ right:82, top:16 } },
       interaction:{ mode:'index', intersect:false },
       plugins:{ legend:{ display:false }, tooltip:{
         titleFont:{family:"'IBM Plex Mono'",size:12}, bodyFont:{family:"'IBM Plex Mono'",size:12}
@@ -377,11 +397,25 @@ function render(){
   if(activeTab==='mensal') renderMensal();
 }
 
+function getDiariaDates(rows){
+  let dates = [...new Set(rows.map(r=>r.data))].sort();
+  if(!monthsCustomized && dates.length < DIARIA_TARGET_DIAS){
+    const allDates = [...new Set(RAW.registos.map(r=>r.data))].sort();
+    const endDate = dates.length ? dates[dates.length-1] : allDates[allDates.length-1];
+    const endIdx = allDates.indexOf(endDate);
+    const startIdx = Math.max(0, endIdx - DIARIA_TARGET_DIAS + 1);
+    dates = allDates.slice(startIdx, endIdx+1);
+  }
+  return dates;
+}
+
 function renderDiaria(rows){
   document.getElementById('chartTitle').textContent = 'Evolução diária por categoria';
-  document.getElementById('chartSub').textContent = 'Nº de trabalhadores por dia — meses selecionados';
-  const dates = [...new Set(rows.map(r=>r.data))].sort();
-  const map = groupSum(rows, r=>r.data);
+  document.getElementById('chartSub').textContent = 'Nº de trabalhadores por dia';
+  const dates = getDiariaDates(rows);
+  const dateSet = new Set(dates);
+  const rowsForChart = RAW.registos.filter(r=>dateSet.has(r.data));
+  const map = groupSum(rowsForChart, r=>r.data);
   drawChart(dates.map(fmtDateShort), buildDatasets(map, dates));
 }
 
@@ -402,7 +436,7 @@ function renderSemanal(rows){
     CAT_ORDER.forEach(c=>{
       const cr = rr.filter(r=>r.categoria===c);
       const dias = [...new Set(cr.map(r=>r.data))];
-      o[c] = dias.length? +(dias.reduce((s,d)=>s+cr.filter(r=>r.data===d).reduce((s2,r)=>s2+r.nTotal,0),0)/dias.length).toFixed(1) : null;
+      o[c] = dias.length? Math.round(dias.reduce((s,d)=>s+cr.filter(r=>r.data===d).reduce((s2,r)=>s2+r.nTotal,0),0)/dias.length) : null;
     });
     avgMap.set(w,o);
     return sem.replace('Semana','S') + ' ' + MESES_ABREV[mes];
@@ -423,7 +457,7 @@ function renderMensal(){
     CAT_ORDER.forEach(c=>{
       const cr = rr.filter(r=>r.categoria===c);
       const dias = [...new Set(cr.map(r=>r.data))];
-      o[c] = dias.length? +(dias.reduce((s,d)=>s+cr.filter(r=>r.data===d).reduce((s2,r)=>s2+r.nTotal,0),0)/dias.length).toFixed(1) : null;
+      o[c] = dias.length? Math.round(dias.reduce((s,d)=>s+cr.filter(r=>r.data===d).reduce((s2,r)=>s2+r.nTotal,0),0)/dias.length) : null;
     });
     avgMap.set(mes,o);
   });
