@@ -3,38 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trabalhadores em Obra — Controlo Diário</title>
+<title>Trabalhadores em Obra — Evolução</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<script>
-  // Carrega o Chart.js tentando várias fontes (algumas redes empresariais bloqueiam CDNs específicos).
-  (function(){
-    var sources = [
-      'https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js',
-      'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js',
-      'https://unpkg.com/chart.js@4.4.4/dist/chart.umd.min.js'
-    ];
-    window.__chartReady = false;
-    window.__chartFailed = false;
-    function tryNext(i){
-      if(i >= sources.length){ window.__chartFailed = true; document.dispatchEvent(new Event('chartlibdone')); return; }
-      var s = document.createElement('script');
-      s.src = sources[i];
-      s.onload = function(){
-        if (typeof Chart !== 'undefined') {
-          window.__chartReady = true;
-          document.dispatchEvent(new Event('chartlibdone'));
-        } else {
-          // O pedido "respondeu" mas veio vazio (bloqueio silencioso tipo Tracking Prevention) — tenta a fonte seguinte.
-          tryNext(i+1);
-        }
-      };
-      s.onerror = function(){ tryNext(i+1); };
-      document.head.appendChild(s);
-    }
-    tryNext(0);
-  })();
-</script>
 <style>
   :root{
     --navy:#10243E;
@@ -53,15 +24,13 @@
   body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;}
   ::selection{background:var(--amber);color:var(--navy);}
 
-  /* ---------- HEADER / TITLE BLOCK ---------- */
   header{
     background:
       repeating-linear-gradient(0deg, var(--grid-blue) 0 1px, transparent 1px 28px),
       repeating-linear-gradient(90deg, var(--grid-blue) 0 1px, transparent 1px 28px),
       linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);
     color:var(--paper);
-    padding:36px 5vw 0;
-    position:relative;
+    padding:28px 5vw 20px;
     border-bottom:6px solid var(--amber);
   }
   .eyebrow{
@@ -72,32 +41,19 @@
   h1{
     font-family:'Barlow Condensed',sans-serif;
     font-weight:700;
-    font-size:clamp(32px,5vw,54px);
+    font-size:clamp(28px,4vw,44px);
     line-height:.95;
-    margin:0 0 22px;
+    margin:0 0 4px;
     letter-spacing:.01em;
   }
-  .stamp{
-    display:inline-grid;
-    grid-auto-flow:column;
-    gap:0;
-    border:1px solid rgba(245,242,234,.35);
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    margin-bottom:-1px;
-    background:rgba(16,36,62,.55);
-    backdrop-filter:blur(2px);
+  .updatedline{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(245,242,234,.6);
   }
-  .stamp div{padding:10px 16px;border-right:1px solid rgba(245,242,234,.25);}
-  .stamp div:last-child{border-right:none;}
-  .stamp .lbl{display:block;color:rgba(245,242,234,.55);font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px;}
-  .stamp .val{color:var(--paper);font-weight:500;}
-  .stamp .val.warn{color:var(--amber);}
+  .updatedline b{color:var(--amber);font-weight:600;}
 
   nav.tabs{
-    display:flex;gap:2px;margin-top:22px;
+    display:flex;gap:2px;margin-top:20px;
     border-top:1px solid rgba(245,242,234,.2);
-    padding-top:0;
   }
   nav.tabs button{
     font-family:'Barlow Condensed',sans-serif;
@@ -110,77 +66,46 @@
   nav.tabs button:hover{color:var(--paper);}
   nav.tabs button.active{color:var(--paper);border-bottom-color:var(--amber);}
 
-  /* ---------- FILTER BAR ---------- */
   .filterbar{
     display:flex;flex-wrap:wrap;align-items:center;gap:10px;
-    padding:16px 5vw;background:var(--paper-2);border-bottom:1px solid var(--line);
+    padding:14px 5vw;background:var(--paper-2);border-bottom:1px solid var(--line);
+    row-gap:10px;
   }
+  .frow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;width:100%;}
   .filterbar .flabel{
     font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;
-    text-transform:uppercase;color:var(--steel);margin-right:4px;
+    text-transform:uppercase;color:var(--steel);margin-right:2px;min-width:64px;
   }
   .chip{
     font-family:'Inter',sans-serif;font-size:13px;font-weight:600;
-    padding:7px 14px;border-radius:3px;border:1.5px solid var(--line);
+    padding:6px 13px;border-radius:3px;border:1.5px solid var(--line);
     background:var(--paper);color:var(--steel);cursor:pointer;
     transition:all .12s ease;
   }
   .chip:hover{border-color:var(--amber-dk);}
   .chip.active{background:var(--navy);border-color:var(--navy);color:var(--paper);}
-  select#mesSelect{
-    font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--ink);
-    padding:7px 12px;border-radius:3px;border:1.5px solid var(--line);background:var(--paper);cursor:pointer;
-  }
 
-  /* ---------- MAIN ---------- */
-  main{padding:28px 5vw 60px;max-width:1400px;margin:0 auto;}
+  main{padding:26px 5vw 50px;max-width:1500px;margin:0 auto;}
 
-  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:26px;}
-  .kpi{
-    background:#fff;border:1px solid var(--line);border-top:3px solid var(--amber);
-    padding:16px 16px 14px;
-  }
-  .kpi.total{border-top-color:var(--navy);background:var(--navy);}
-  .kpi .k-label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--steel);}
-  .kpi.total .k-label{color:rgba(245,242,234,.6);}
-  .kpi .k-value{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:38px;color:var(--ink);line-height:1.1;margin-top:4px;}
-  .kpi.total .k-value{color:var(--amber);}
-  .kpi .k-delta{font-family:'IBM Plex Mono',monospace;font-size:11px;margin-top:4px;color:var(--steel);}
-  .kpi.total .k-delta{color:rgba(245,242,234,.7);}
-  .k-delta.up{color:#2E7D32;}
-  .k-delta.down{color:var(--rebar);}
-  .kpi.total .k-delta.up{color:#8FD19E;}
-  .kpi.total .k-delta.down{color:#F1978C;}
-
-  .panel-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:18px;}
-  .panel{background:#fff;border:1px solid var(--line);padding:20px 22px 12px;}
+  .panel{background:#fff;border:1px solid var(--line);padding:22px 26px 18px;}
   .panel h2{
-    font-family:'Barlow Condensed',sans-serif;font-size:21px;font-weight:600;
+    font-family:'Barlow Condensed',sans-serif;font-size:23px;font-weight:600;
     margin:0 0 2px;letter-spacing:.01em;
   }
-  .panel .sub{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--steel);margin-bottom:14px;display:block;}
+  .panel .sub{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--steel);margin-bottom:8px;display:block;}
+  .chartwrap{position:relative;height:560px;}
   canvas{max-width:100%;}
 
-  table.databar{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px;}
-  table.databar th{
-    text-align:left;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;
-    text-transform:uppercase;color:var(--steel);border-bottom:1.5px solid var(--ink);padding:6px 8px;
-  }
-  table.databar td{padding:7px 8px;border-bottom:1px solid var(--line);font-family:'IBM Plex Mono',monospace;}
-  table.databar tr:hover td{background:var(--paper-2);}
-  table.databar td.num{text-align:right;font-weight:600;}
-
   footer{
-    padding:18px 5vw 32px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--steel);
-    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:1px solid var(--line);
+    padding:16px 5vw 30px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--steel);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
   }
-  footer a{color:var(--amber-dk);}
 
   @media (max-width:900px){
-    .kpis{grid-template-columns:repeat(2,1fr);}
-    .panel-grid{grid-template-columns:1fr;}
+    .chartwrap{height:420px;}
+    .filterbar .flabel{min-width:auto;width:100%;margin-bottom:-4px;}
   }
-  .loading, .errbox{padding:60px 5vw;font-family:'IBM Plex Mono',monospace;color:var(--steel);}
+  .loading, .errbox{padding:40px 0;font-family:'IBM Plex Mono',monospace;color:var(--steel);text-align:center;}
   .errbox{color:var(--rebar);}
 </style>
 </head>
@@ -188,13 +113,8 @@
 
 <header>
   <p class="eyebrow">Controlo Geral de Trabalhadores — Obra</p>
-  <h1>Mapa Evolutivo de<br>Trabalhadores em Obra</h1>
-  <div class="stamp">
-    <div><span class="lbl">Última leitura</span><span class="val" id="stampData">—</span></div>
-    <div><span class="lbl">Total em obra</span><span class="val warn" id="stampTotal">—</span></div>
-    <div><span class="lbl">Registos</span><span class="val" id="stampReg">—</span></div>
-    <div><span class="lbl">Atualização</span><span class="val">Diária · 11:30</span></div>
-  </div>
+  <h1>Evolução de Trabalhadores em Obra</h1>
+  <p class="updatedline">Última leitura: <b id="stampData">—</b> · atualização automática diária às <b>11:30</b></p>
   <nav class="tabs">
     <button data-tab="diaria" class="active">DIÁRIA</button>
     <button data-tab="semanal">SEMANAL</button>
@@ -203,10 +123,14 @@
 </header>
 
 <div class="filterbar">
-  <span class="flabel">Categoria</span>
-  <div id="chipRow"></div>
-  <span class="flabel" style="margin-left:18px;">Mês</span>
-  <select id="mesSelect"></select>
+  <div class="frow">
+    <span class="flabel">Categoria</span>
+    <div id="chipRowCat"></div>
+  </div>
+  <div class="frow">
+    <span class="flabel">Mês</span>
+    <div id="chipRowMes"></div>
+  </div>
 </div>
 
 <main id="main">
@@ -214,29 +138,59 @@
 </main>
 
 <footer>
-  <span>Fonte: Controlo_Geral_Trab_.xlsx (folha "Evolução") · atualizado automaticamente via Power Automate</span>
-  <span>Categorias: Carpinteiros · Ferrageiros · Especialidades · Gesso Cartonado</span>
+  <span>Fonte: Controlo_Geral_Trab_.xlsx (folha "Evolução")</span>
 </footer>
 
+<script>
+  // Carrega o Chart.js tentando várias fontes (algumas redes/navegadores bloqueiam CDNs específicos).
+  (function(){
+    var sources = [
+      'https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js',
+      'https://unpkg.com/chart.js@4.4.4/dist/chart.umd.min.js'
+    ];
+    window.__chartReady = false;
+    window.__chartFailed = false;
+    function tryNext(i){
+      if(i >= sources.length){ window.__chartFailed = true; document.dispatchEvent(new Event('chartlibdone')); return; }
+      var s = document.createElement('script');
+      s.src = sources[i];
+      s.onload = function(){
+        if (typeof Chart !== 'undefined') {
+          window.__chartReady = true;
+          document.dispatchEvent(new Event('chartlibdone'));
+        } else {
+          tryNext(i+1);
+        }
+      };
+      s.onerror = function(){ tryNext(i+1); };
+      document.head.appendChild(s);
+    }
+    tryNext(0);
+  })();
+</script>
 <script>
 const COLORS = {
   'Carpinteiros':'#E8A33D',
   'Ferrageiros':'#5B6B7C',
   'Especialidades':'#C1443A',
   'Gesso Cartonado':'#16324F',
-  'Total Em Obra':'#10243E'
+  'Total Em Obra':'#1B1B1B'
 };
-const CAT_ORDER = ['Carpinteiros','Ferrageiros','Especialidades','Gesso Cartonado'];
+const CAT_ORDER = ['Carpinteiros','Ferrageiros','Especialidades','Gesso Cartonado','Total Em Obra'];
+const MESES_ABREV = {'Janeiro':'jan','Fevereiro':'fev','Março':'mar','Abril':'abr','Maio':'mai','Junho':'jun','Julho':'jul','Agosto':'ago','Setembro':'set','Outubro':'out','Novembro':'nov','Dezembro':'dez'};
+const MESES_ARR = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
 
 let RAW = null;
 let activeTab = 'diaria';
 let activeCats = new Set(CAT_ORDER);
-let activeMes = 'TODOS';
-let charts = {};
+let activeMonths = new Set();
+let mainChart = null;
+let pluginsRegistered = false;
 
-function fmtDate(iso){
+function fmtDateShort(iso){
   const d = new Date(iso+'T00:00:00');
-  return d.toLocaleDateString('pt-PT',{day:'2-digit',month:'2-digit',year:'numeric'});
+  return d.getDate() + ' ' + MESES_ARR[d.getMonth()];
 }
 
 async function boot(){
@@ -249,8 +203,12 @@ async function boot(){
       '<div class="errbox">Não foi possível carregar dados.json. Confirma que o ficheiro está na mesma pasta que este index.html.<br>Detalhe: '+e.message+'</div>';
     return;
   }
-  populateMesSelect();
-  populateChips();
+
+  const order=[]; const seen=new Set();
+  RAW.registos.forEach(r=>{ if(!seen.has(r.mes)){seen.add(r.mes); order.push(r.mes);} });
+  activeMonths = new Set([order[order.length-1]]);
+  populateMesChips(order);
+  populateCatChips();
   updateStamp();
 
   if(window.__chartReady){ render(); }
@@ -258,24 +216,26 @@ async function boot(){
   else{ document.addEventListener('chartlibdone', ()=>render(), {once:true}); }
 }
 
-function populateMesSelect(){
-  const order=[]; const seen=new Set();
-  RAW.registos.forEach(r=>{ if(!seen.has(r.mes)){seen.add(r.mes); order.push(r.mes);} });
-  const sel = document.getElementById('mesSelect');
-  sel.innerHTML = '<option value="TODOS">Todos os meses</option>' +
-    order.map(m=>`<option value="${m}">${m}</option>`).join('');
-  sel.value = order[order.length-1];
-  activeMes = sel.value;
-  sel.addEventListener('change', ()=>{ activeMes = sel.value; render(); });
+function populateMesChips(order){
+  const row = document.getElementById('chipRowMes');
+  row.innerHTML = order.map(m=>`<button class="chip ${activeMonths.has(m)?'active':''}" data-mes="${m}">${m}</button>`).join('');
+  row.querySelectorAll('.chip').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const m = btn.dataset.mes;
+      if(activeMonths.has(m)){ if(activeMonths.size>1){ activeMonths.delete(m); btn.classList.remove('active'); } }
+      else{ activeMonths.add(m); btn.classList.add('active'); }
+      render();
+    });
+  });
 }
 
-function populateChips(){
-  const row = document.getElementById('chipRow');
+function populateCatChips(){
+  const row = document.getElementById('chipRowCat');
   row.innerHTML = CAT_ORDER.map(c=>`<button class="chip active" data-cat="${c}">${c}</button>`).join('');
   row.querySelectorAll('.chip').forEach(btn=>{
     btn.addEventListener('click', ()=>{
       const cat = btn.dataset.cat;
-      if(activeCats.has(cat)){ activeCats.delete(cat); btn.classList.remove('active'); }
+      if(activeCats.has(cat)){ if(activeCats.size>1){ activeCats.delete(cat); btn.classList.remove('active'); } }
       else{ activeCats.add(cat); btn.classList.add('active'); }
       render();
     });
@@ -283,22 +243,12 @@ function populateChips(){
 }
 
 function updateStamp(){
-  document.getElementById('stampReg').textContent = RAW.registos.length;
   const totals = RAW.registos.filter(r=>r.categoria==='Total Em Obra').sort((a,b)=>a.data.localeCompare(b.data));
   if(totals.length){
-    const last = totals[totals.length-1];
-    document.getElementById('stampData').textContent = fmtDate(last.data);
-    document.getElementById('stampTotal').textContent = last.nTotal;
+    document.getElementById('stampData').textContent = fmtDateShort(totals[totals.length-1].data);
   } else if(RAW.atualizadoEm){
     document.getElementById('stampData').textContent = RAW.atualizadoEm;
   }
-}
-
-function filtered(){
-  return RAW.registos.filter(r=>{
-    if(activeMes!=='TODOS' && r.mes!==activeMes) return false;
-    return true;
-  });
 }
 
 document.querySelectorAll('nav.tabs button').forEach(btn=>{
@@ -310,79 +260,57 @@ document.querySelectorAll('nav.tabs button').forEach(btn=>{
   });
 });
 
-function destroyCharts(){ Object.values(charts).forEach(c=>c.destroy()); charts={}; }
+function filteredByMonth(){
+  return RAW.registos.filter(r=>activeMonths.has(r.mes));
+}
 
-function kpiHtml(rows){
-  const totals = rows.filter(r=>r.categoria==='Total Em Obra').sort((a,b)=>a.data.localeCompare(b.data));
-  const lastTotal = totals.length? totals[totals.length-1] : null;
-  const prevTotal = totals.length>1? totals[totals.length-2] : null;
-  let html = '<div class="kpis">';
-  html += kpiCard('Total em obra', lastTotal? lastTotal.nTotal : '—', lastTotal, prevTotal, true);
-  CAT_ORDER.forEach(cat=>{
-    const rr = rows.filter(r=>r.categoria===cat).sort((a,b)=>a.data.localeCompare(b.data));
-    const last = rr.length? rr[rr.length-1] : null;
-    const prev = rr.length>1? rr[rr.length-2] : null;
-    html += kpiCard(cat, last? last.nTotal : '—', last, prev, false);
+function registerPluginsOnce(){
+  if(pluginsRegistered || typeof Chart === 'undefined') return;
+  Chart.register({
+    id: 'endLabels',
+    afterDatasetsDraw(chart){
+      const {ctx} = chart;
+      chart.data.datasets.forEach((ds,i)=>{
+        const meta = chart.getDatasetMeta(i);
+        if(!meta || meta.hidden) return;
+        let lastIdx = -1;
+        for(let j=ds.data.length-1;j>=0;j--){ if(ds.data[j]!==null && ds.data[j]!==undefined){ lastIdx=j; break; } }
+        if(lastIdx===-1) return;
+        const point = meta.data[lastIdx];
+        if(!point) return;
+        ctx.save();
+        ctx.font = "600 13px 'Inter', sans-serif";
+        ctx.fillStyle = ds.borderColor;
+        ctx.textBaseline = 'middle';
+        ctx.textAlign = 'left';
+        ctx.fillText(ds.label, point.x + 8, point.y);
+        ctx.restore();
+      });
+    }
   });
-  html += '</div>';
-  return html;
-}
-function kpiCard(label, value, last, prev, isTotal){
-  let delta = '';
-  if(last && prev){
-    const d = last.nTotal - prev.nTotal;
-    const cls = d>0?'up':(d<0?'down':'');
-    const sign = d>0?'+':'';
-    delta = `<div class="k-delta ${cls}">${sign}${d} vs leitura anterior</div>`;
-  } else if(last){
-    delta = `<div class="k-delta">${fmtDate(last.data)}</div>`;
-  }
-  return `<div class="kpi ${isTotal?'total':''}">
-    <div class="k-label">${label}</div>
-    <div class="k-value">${value}</div>
-    ${delta}
-  </div>`;
-}
-
-function render(){
-  const rows = filtered().filter(r=>r.categoria!=='Total Em Obra' || true);
-  const catRows = rows.filter(r=>activeCats.has(r.categoria));
-  const main = document.getElementById('main');
-  destroyCharts();
-
-  main.innerHTML = kpiHtml(rows) + `
-    <div class="panel-grid">
-      <div class="panel">
-        <h2 id="chartTitleLine"></h2>
-        <span class="sub" id="chartSubLine"></span>
-        <canvas id="lineChart" height="130"></canvas>
-      </div>
-      <div class="panel">
-        <h2 id="chartTitleBar"></h2>
-        <span class="sub" id="chartSubBar"></span>
-        <canvas id="barChart" height="150"></canvas>
-      </div>
-    </div>
-    <div class="panel" style="margin-top:18px;">
-      <h2 id="tableTitle"></h2>
-      <span class="sub" id="tableSub"></span>
-      <div id="tableWrap"></div>
-    </div>
-  `;
-
-  if(window.__chartFailed || typeof Chart === 'undefined'){
-    document.getElementById('chartTitleLine').textContent = 'Gráfico indisponível';
-    document.getElementById('chartSubLine').textContent = '';
-    document.getElementById('lineChart').outerHTML =
-      '<div class="errbox" style="padding:20px 0;">Não foi possível carregar a biblioteca de gráficos (rede bloqueou jsdelivr, cdnjs e unpkg). Os KPIs e a tabela abaixo continuam corretos. Fala com o teu departamento de TI para libertar o acesso a estes domínios, ou abre o site noutra rede.</div>';
-    document.getElementById('chartTitleBar').textContent = '';
-    document.getElementById('chartSubBar').textContent = '';
-    const bc = document.getElementById('barChart'); if(bc) bc.outerHTML = '';
-  } else {
-    if(activeTab==='diaria') renderDiaria(catRows);
-    if(activeTab==='semanal') renderSemanal(catRows);
-    if(activeTab==='mensal') renderMensal(catRows);
-  }
+  Chart.register({
+    id: 'valueLabels',
+    afterDatasetsDraw(chart){
+      if(chart.data.labels.length > 24) return; // evita ruído quando há muitos pontos
+      const {ctx} = chart;
+      chart.data.datasets.forEach((ds,i)=>{
+        const meta = chart.getDatasetMeta(i);
+        if(!meta || meta.hidden) return;
+        meta.data.forEach((point, idx)=>{
+          const v = ds.data[idx];
+          if(v===null || v===undefined) return;
+          ctx.save();
+          ctx.font = "600 10.5px 'IBM Plex Mono', monospace";
+          ctx.fillStyle = ds.borderColor;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'bottom';
+          ctx.fillText(v, point.x, point.y - 7);
+          ctx.restore();
+        });
+      });
+    }
+  });
+  pluginsRegistered = true;
 }
 
 function groupSum(rows, keyFn){
@@ -396,82 +324,79 @@ function groupSum(rows, keyFn){
   return m;
 }
 
-function lineDatasets(map, keys){
+function buildDatasets(map, keys){
   return CAT_ORDER.filter(c=>activeCats.has(c)).map(cat=>({
     label:cat, data:keys.map(k=> (map.get(k)||{})[cat] ?? null),
     borderColor:COLORS[cat], backgroundColor:COLORS[cat],
-    tension:.25, pointRadius:2.5, borderWidth:2, spanGaps:true
+    tension:.25, pointRadius:3, pointHoverRadius:5, borderWidth: cat==='Total Em Obra'?3:2.25,
+    spanGaps:true
   }));
 }
 
-function baseLineOpts(){
-  return { responsive:true, interaction:{mode:'index',intersect:false},
-    plugins:{ legend:{position:'bottom', labels:{font:{family:"'Inter'",size:11},boxWidth:12}} },
-    scales:{ x:{grid:{display:false}, ticks:{font:{family:"'IBM Plex Mono'",size:10}}},
-             y:{grid:{color:'#E8E2D2'}, ticks:{font:{family:"'IBM Plex Mono'",size:10}}, beginAtZero:true} } };
+function drawChart(labels, datasets){
+  registerPluginsOnce();
+  const wrap = document.getElementById('chartwrap');
+  wrap.innerHTML = '<canvas id="lineChart"></canvas>';
+  if(typeof Chart === 'undefined'){
+    wrap.innerHTML = '<div class="errbox">Não foi possível carregar a biblioteca de gráficos (rede bloqueou todas as fontes tentadas). Fala com o teu departamento de TI, ou abre o site noutra rede/navegador.</div>';
+    return;
+  }
+  const ctx = document.getElementById('lineChart');
+  if(mainChart) mainChart.destroy();
+  mainChart = new Chart(ctx, {
+    type:'line',
+    data:{ labels, datasets },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      layout:{ padding:{ right:130, top:20 } },
+      interaction:{ mode:'index', intersect:false },
+      plugins:{ legend:{ display:false }, tooltip:{
+        titleFont:{family:"'IBM Plex Mono'",size:12}, bodyFont:{family:"'IBM Plex Mono'",size:12}
+      } },
+      scales:{
+        x:{ grid:{display:false}, ticks:{font:{family:"'IBM Plex Mono'",size:11.5}} },
+        y:{ grid:{color:'#EDE8DA'}, ticks:{font:{family:"'IBM Plex Mono'",size:11.5}}, beginAtZero:true }
+      }
+    }
+  });
 }
-function baseBarOpts(){
-  return { responsive:true,
-    plugins:{ legend:{display:false} },
-    scales:{ x:{grid:{display:false}, ticks:{font:{family:"'IBM Plex Mono'",size:10}}},
-             y:{grid:{color:'#E8E2D2'}, ticks:{font:{family:"'IBM Plex Mono'",size:10}}, beginAtZero:true} } };
+
+function render(){
+  const main = document.getElementById('main');
+  main.innerHTML = `
+    <div class="panel">
+      <h2 id="chartTitle"></h2>
+      <span class="sub" id="chartSub"></span>
+      <div class="chartwrap" id="chartwrap"></div>
+    </div>`;
+
+  const rows = filteredByMonth();
+
+  if(activeTab==='diaria') renderDiaria(rows);
+  if(activeTab==='semanal') renderSemanal(rows);
+  if(activeTab==='mensal') renderMensal();
 }
 
 function renderDiaria(rows){
-  document.getElementById('chartTitleLine').textContent = 'Evolução diária por categoria';
-  document.getElementById('chartSubLine').textContent = 'Nº de trabalhadores por dia (últimas leituras do mês selecionado)';
-  document.getElementById('chartTitleBar').textContent = 'Última leitura, por categoria';
-  document.getElementById('chartSubBar').textContent = 'Comparação do dia mais recente';
-  document.getElementById('tableTitle').textContent = 'Registos diários';
-  document.getElementById('tableSub').textContent = 'Detalhe por dia e categoria';
-
+  document.getElementById('chartTitle').textContent = 'Evolução diária por categoria';
+  document.getElementById('chartSub').textContent = 'Nº de trabalhadores por dia — meses selecionados';
   const dates = [...new Set(rows.map(r=>r.data))].sort();
   const map = groupSum(rows, r=>r.data);
-  charts.line = new Chart(document.getElementById('lineChart'), {
-    type:'line',
-    data:{ labels: dates.map(fmtDate), datasets: lineDatasets(map, dates) },
-    options: baseLineOpts()
-  });
-
-  const lastDate = dates[dates.length-1];
-  const lastRow = rows.filter(r=>r.data===lastDate);
-  charts.bar = new Chart(document.getElementById('barChart'), {
-    type:'bar',
-    data:{ labels: CAT_ORDER.filter(c=>activeCats.has(c)),
-      datasets:[{ data: CAT_ORDER.filter(c=>activeCats.has(c)).map(c=>{
-          const r = lastRow.find(x=>x.categoria===c); return r? r.nTotal : 0; }),
-        backgroundColor: CAT_ORDER.filter(c=>activeCats.has(c)).map(c=>COLORS[c]) }] },
-    options: baseBarOpts()
-  });
-
-  const tbody = dates.slice().reverse().slice(0,25).map(d=>{
-    const rr = rows.filter(r=>r.data===d);
-    const tot = rr.reduce((s,r)=>s+r.nTotal,0);
-    return `<tr><td>${fmtDate(d)}</td>${CAT_ORDER.map(c=>{
-        const r=rr.find(x=>x.categoria===c); return `<td class="num">${r?r.nTotal:'—'}</td>`; }).join('')}<td class="num"><strong>${tot}</strong></td></tr>`;
-  }).join('');
-  document.getElementById('tableWrap').innerHTML = `<table class="databar">
-    <thead><tr><th>Data</th>${CAT_ORDER.map(c=>`<th>${c}</th>`).join('')}<th>Total</th></tr></thead>
-    <tbody>${tbody}</tbody></table>`;
+  drawChart(dates.map(fmtDateShort), buildDatasets(map, dates));
 }
 
 function renderSemanal(rows){
-  document.getElementById('chartTitleLine').textContent = 'Evolução semanal por categoria';
-  document.getElementById('chartSubLine').textContent = 'Média de trabalhadores por semana';
-  document.getElementById('chartTitleBar').textContent = 'Média da semana mais recente';
-  document.getElementById('chartSubBar').textContent = 'Comparação por categoria';
-  document.getElementById('tableTitle').textContent = 'Registos semanais';
-  document.getElementById('tableSub').textContent = 'Média por semana e categoria';
-
-  const weeks = [...new Set(rows.map(r=>r.mes+' · '+r.semana))];
+  document.getElementById('chartTitle').textContent = 'Evolução semanal por categoria';
+  document.getElementById('chartSub').textContent = 'Média de trabalhadores por semana — meses selecionados';
+  const weeks = [...new Set(rows.map(r=>r.mes+'|'+r.semana))];
   weeks.sort((a,b)=>{
-    const ra = rows.find(r=>(r.mes+' · '+r.semana)===a);
-    const rb = rows.find(r=>(r.mes+' · '+r.semana)===b);
+    const ra = rows.find(r=>(r.mes+'|'+r.semana)===a);
+    const rb = rows.find(r=>(r.mes+'|'+r.semana)===b);
     return ra.data.localeCompare(rb.data);
   });
   const avgMap = new Map();
-  weeks.forEach(w=>{
-    const [mes,sem] = w.split(' · ');
+  const labels = weeks.map(w=>{
+    const [mes,sem] = w.split('|');
     const rr = rows.filter(r=>r.mes===mes && r.semana===sem);
     const o = {};
     CAT_ORDER.forEach(c=>{
@@ -480,49 +405,20 @@ function renderSemanal(rows){
       o[c] = dias.length? +(dias.reduce((s,d)=>s+cr.filter(r=>r.data===d).reduce((s2,r)=>s2+r.nTotal,0),0)/dias.length).toFixed(1) : null;
     });
     avgMap.set(w,o);
+    return sem.replace('Semana','S') + ' ' + MESES_ABREV[mes];
   });
-
-  charts.line = new Chart(document.getElementById('lineChart'), {
-    type:'line',
-    data:{ labels: weeks, datasets: lineDatasets(avgMap, weeks) },
-    options: baseLineOpts()
-  });
-
-  const lastW = weeks[weeks.length-1];
-  const lastAvg = avgMap.get(lastW) || {};
-  charts.bar = new Chart(document.getElementById('barChart'), {
-    type:'bar',
-    data:{ labels: CAT_ORDER.filter(c=>activeCats.has(c)),
-      datasets:[{ data: CAT_ORDER.filter(c=>activeCats.has(c)).map(c=>lastAvg[c]||0),
-        backgroundColor: CAT_ORDER.filter(c=>activeCats.has(c)).map(c=>COLORS[c]) }] },
-    options: baseBarOpts()
-  });
-
-  const tbody = weeks.slice().reverse().map(w=>{
-    const o = avgMap.get(w);
-    const tot = CAT_ORDER.reduce((s,c)=>s+(o[c]||0),0);
-    return `<tr><td>${w}</td>${CAT_ORDER.map(c=>`<td class="num">${o[c]??'—'}</td>`).join('')}<td class="num"><strong>${tot.toFixed(1)}</strong></td></tr>`;
-  }).join('');
-  document.getElementById('tableWrap').innerHTML = `<table class="databar">
-    <thead><tr><th>Semana</th>${CAT_ORDER.map(c=>`<th>${c}</th>`).join('')}<th>Total (média)</th></tr></thead>
-    <tbody>${tbody}</tbody></table>`;
+  drawChart(labels, buildDatasets(avgMap, weeks));
 }
 
-function renderMensal(rows){
-  document.getElementById('chartTitleLine').textContent = 'Evolução mensal por categoria';
-  document.getElementById('chartSubLine').textContent = 'Média de trabalhadores por mês';
-  document.getElementById('chartTitleBar').textContent = 'Média do mês mais recente';
-  document.getElementById('chartSubBar').textContent = 'Comparação por categoria';
-  document.getElementById('tableTitle').textContent = 'Registos mensais';
-  document.getElementById('tableSub').textContent = 'Média por mês e categoria';
-
-  const all = RAW.registos; // meses use full dataset regardless of month filter
+function renderMensal(){
+  document.getElementById('chartTitle').textContent = 'Evolução mensal por categoria';
+  document.getElementById('chartSub').textContent = 'Média de trabalhadores por mês — meses selecionados';
+  const rows = filteredByMonth();
   const months=[]; const seen=new Set();
-  all.forEach(r=>{ if(!seen.has(r.mes)){seen.add(r.mes); months.push(r.mes);} });
-
+  rows.forEach(r=>{ if(!seen.has(r.mes)){seen.add(r.mes); months.push(r.mes);} });
   const avgMap = new Map();
   months.forEach(mes=>{
-    const rr = all.filter(r=>r.mes===mes);
+    const rr = rows.filter(r=>r.mes===mes);
     const o = {};
     CAT_ORDER.forEach(c=>{
       const cr = rr.filter(r=>r.categoria===c);
@@ -531,31 +427,7 @@ function renderMensal(rows){
     });
     avgMap.set(mes,o);
   });
-
-  charts.line = new Chart(document.getElementById('lineChart'), {
-    type:'line',
-    data:{ labels: months, datasets: lineDatasets(avgMap, months) },
-    options: baseLineOpts()
-  });
-
-  const lastM = months[months.length-1];
-  const lastAvg = avgMap.get(lastM) || {};
-  charts.bar = new Chart(document.getElementById('barChart'), {
-    type:'bar',
-    data:{ labels: CAT_ORDER.filter(c=>activeCats.has(c)),
-      datasets:[{ data: CAT_ORDER.filter(c=>activeCats.has(c)).map(c=>lastAvg[c]||0),
-        backgroundColor: CAT_ORDER.filter(c=>activeCats.has(c)).map(c=>COLORS[c]) }] },
-    options: baseBarOpts()
-  });
-
-  const tbody = months.slice().reverse().map(mes=>{
-    const o = avgMap.get(mes);
-    const tot = CAT_ORDER.reduce((s,c)=>s+(o[c]||0),0);
-    return `<tr><td>${mes}</td>${CAT_ORDER.map(c=>`<td class="num">${o[c]??'—'}</td>`).join('')}<td class="num"><strong>${tot.toFixed(1)}</strong></td></tr>`;
-  }).join('');
-  document.getElementById('tableWrap').innerHTML = `<table class="databar">
-    <thead><tr><th>Mês</th>${CAT_ORDER.map(c=>`<th>${c}</th>`).join('')}<th>Total (média)</th></tr></thead>
-    <tbody>${tbody}</tbody></table>`;
+  drawChart(months.map(m=>MESES_ABREV[m]), buildDatasets(avgMap, months));
 }
 
 boot();
