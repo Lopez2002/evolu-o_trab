@@ -6,7 +6,27 @@
 <title>Trabalhadores em Obra — Controlo Diário</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script>
+  // Carrega o Chart.js tentando várias fontes (algumas redes empresariais bloqueiam CDNs específicos).
+  (function(){
+    var sources = [
+      'https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js',
+      'https://unpkg.com/chart.js@4.4.4/dist/chart.umd.min.js'
+    ];
+    window.__chartReady = false;
+    window.__chartFailed = false;
+    function tryNext(i){
+      if(i >= sources.length){ window.__chartFailed = true; document.dispatchEvent(new Event('chartlibdone')); return; }
+      var s = document.createElement('script');
+      s.src = sources[i];
+      s.onload = function(){ window.__chartReady = true; document.dispatchEvent(new Event('chartlibdone')); };
+      s.onerror = function(){ tryNext(i+1); };
+      document.head.appendChild(s);
+    }
+    tryNext(0);
+  })();
+</script>
 <style>
   :root{
     --navy:#10243E;
@@ -224,7 +244,10 @@ async function boot(){
   populateMesSelect();
   populateChips();
   updateStamp();
-  render();
+
+  if(window.__chartReady){ render(); }
+  else if(window.__chartFailed){ render(); }
+  else{ document.addEventListener('chartlibdone', ()=>render(), {once:true}); }
 }
 
 function populateMesSelect(){
@@ -339,9 +362,19 @@ function render(){
     </div>
   `;
 
-  if(activeTab==='diaria') renderDiaria(catRows);
-  if(activeTab==='semanal') renderSemanal(catRows);
-  if(activeTab==='mensal') renderMensal(catRows);
+  if(window.__chartFailed || typeof Chart === 'undefined'){
+    document.getElementById('chartTitleLine').textContent = 'Gráfico indisponível';
+    document.getElementById('chartSubLine').textContent = '';
+    document.getElementById('lineChart').outerHTML =
+      '<div class="errbox" style="padding:20px 0;">Não foi possível carregar a biblioteca de gráficos (rede bloqueou jsdelivr, cdnjs e unpkg). Os KPIs e a tabela abaixo continuam corretos. Fala com o teu departamento de TI para libertar o acesso a estes domínios, ou abre o site noutra rede.</div>';
+    document.getElementById('chartTitleBar').textContent = '';
+    document.getElementById('chartSubBar').textContent = '';
+    const bc = document.getElementById('barChart'); if(bc) bc.outerHTML = '';
+  } else {
+    if(activeTab==='diaria') renderDiaria(catRows);
+    if(activeTab==='semanal') renderSemanal(catRows);
+    if(activeTab==='mensal') renderMensal(catRows);
+  }
 }
 
 function groupSum(rows, keyFn){
