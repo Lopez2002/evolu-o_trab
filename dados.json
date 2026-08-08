@@ -1,0 +1,3953 @@
+{
+ "atualizadoEm": "2026-08-08 11:23",
+ "registos": [
+  {
+   "data": "2026-01-02",
+   "categoria": "Carpinteiros",
+   "nTotal": 15,
+   "semana": "Semana 1",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-02",
+   "categoria": "Ferrageiros",
+   "nTotal": 20,
+   "semana": "Semana 1",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-02",
+   "categoria": "Especialidades",
+   "nTotal": 0,
+   "semana": "Semana 1",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-02",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 1",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-05",
+   "categoria": "Carpinteiros",
+   "nTotal": 25,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-05",
+   "categoria": "Ferrageiros",
+   "nTotal": 24,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-05",
+   "categoria": "Especialidades",
+   "nTotal": 2,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-05",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-06",
+   "categoria": "Carpinteiros",
+   "nTotal": 24,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-06",
+   "categoria": "Ferrageiros",
+   "nTotal": 24,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-06",
+   "categoria": "Especialidades",
+   "nTotal": 0,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-06",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-07",
+   "categoria": "Carpinteiros",
+   "nTotal": 28,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-07",
+   "categoria": "Ferrageiros",
+   "nTotal": 31,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-07",
+   "categoria": "Especialidades",
+   "nTotal": 0,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-07",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-08",
+   "categoria": "Carpinteiros",
+   "nTotal": 28,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-08",
+   "categoria": "Ferrageiros",
+   "nTotal": 28,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-08",
+   "categoria": "Especialidades",
+   "nTotal": 0,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-08",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-09",
+   "categoria": "Carpinteiros",
+   "nTotal": 26,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-09",
+   "categoria": "Ferrageiros",
+   "nTotal": 22,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-09",
+   "categoria": "Especialidades",
+   "nTotal": 0,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-09",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-12",
+   "categoria": "Carpinteiros",
+   "nTotal": 24,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-12",
+   "categoria": "Ferrageiros",
+   "nTotal": 23,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-12",
+   "categoria": "Especialidades",
+   "nTotal": 0,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-12",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-13",
+   "categoria": "Carpinteiros",
+   "nTotal": 29,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-13",
+   "categoria": "Ferrageiros",
+   "nTotal": 21,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-13",
+   "categoria": "Especialidades",
+   "nTotal": 0,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-13",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-14",
+   "categoria": "Carpinteiros",
+   "nTotal": 31,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-14",
+   "categoria": "Ferrageiros",
+   "nTotal": 23,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-14",
+   "categoria": "Especialidades",
+   "nTotal": 2,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-14",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-15",
+   "categoria": "Carpinteiros",
+   "nTotal": 28,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-15",
+   "categoria": "Ferrageiros",
+   "nTotal": 21,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-15",
+   "categoria": "Especialidades",
+   "nTotal": 2,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-15",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-16",
+   "categoria": "Carpinteiros",
+   "nTotal": 28,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-16",
+   "categoria": "Ferrageiros",
+   "nTotal": 29,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-16",
+   "categoria": "Especialidades",
+   "nTotal": 0,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-16",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-19",
+   "categoria": "Carpinteiros",
+   "nTotal": 23,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-19",
+   "categoria": "Ferrageiros",
+   "nTotal": 20,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-19",
+   "categoria": "Especialidades",
+   "nTotal": 1,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-19",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-20",
+   "categoria": "Carpinteiros",
+   "nTotal": 26,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-20",
+   "categoria": "Ferrageiros",
+   "nTotal": 19,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-20",
+   "categoria": "Especialidades",
+   "nTotal": 0,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-20",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-21",
+   "categoria": "Carpinteiros",
+   "nTotal": 26,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-21",
+   "categoria": "Ferrageiros",
+   "nTotal": 19,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-21",
+   "categoria": "Especialidades",
+   "nTotal": 2,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-21",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-22",
+   "categoria": "Carpinteiros",
+   "nTotal": 28,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-22",
+   "categoria": "Ferrageiros",
+   "nTotal": 18,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-22",
+   "categoria": "Especialidades",
+   "nTotal": 0,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-22",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-23",
+   "categoria": "Carpinteiros",
+   "nTotal": 28,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-23",
+   "categoria": "Ferrageiros",
+   "nTotal": 18,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-23",
+   "categoria": "Especialidades",
+   "nTotal": 1,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-23",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-26",
+   "categoria": "Carpinteiros",
+   "nTotal": 32,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-26",
+   "categoria": "Ferrageiros",
+   "nTotal": 21,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-26",
+   "categoria": "Especialidades",
+   "nTotal": 0,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-26",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-27",
+   "categoria": "Carpinteiros",
+   "nTotal": 32,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-27",
+   "categoria": "Ferrageiros",
+   "nTotal": 24,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-27",
+   "categoria": "Especialidades",
+   "nTotal": 0,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-27",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-28",
+   "categoria": "Carpinteiros",
+   "nTotal": 31,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-28",
+   "categoria": "Ferrageiros",
+   "nTotal": 23,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-28",
+   "categoria": "Especialidades",
+   "nTotal": 0,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-28",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-29",
+   "categoria": "Carpinteiros",
+   "nTotal": 30,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-29",
+   "categoria": "Ferrageiros",
+   "nTotal": 21,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-29",
+   "categoria": "Especialidades",
+   "nTotal": 0,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-29",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-30",
+   "categoria": "Carpinteiros",
+   "nTotal": 28,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-30",
+   "categoria": "Ferrageiros",
+   "nTotal": 23,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-30",
+   "categoria": "Especialidades",
+   "nTotal": 0,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-30",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-02-02",
+   "categoria": "Carpinteiros",
+   "nTotal": 26,
+   "semana": "Semana 1",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-02",
+   "categoria": "Ferrageiros",
+   "nTotal": 17,
+   "semana": "Semana 1",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-02",
+   "categoria": "Especialidades",
+   "nTotal": 2,
+   "semana": "Semana 1",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-03",
+   "categoria": "Carpinteiros",
+   "nTotal": 23,
+   "semana": "Semana 1",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-03",
+   "categoria": "Ferrageiros",
+   "nTotal": 21,
+   "semana": "Semana 1",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-03",
+   "categoria": "Especialidades",
+   "nTotal": 2,
+   "semana": "Semana 1",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-04",
+   "categoria": "Carpinteiros",
+   "nTotal": 30,
+   "semana": "Semana 1",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-04",
+   "categoria": "Ferrageiros",
+   "nTotal": 27,
+   "semana": "Semana 1",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-04",
+   "categoria": "Especialidades",
+   "nTotal": 1,
+   "semana": "Semana 1",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-05",
+   "categoria": "Carpinteiros",
+   "nTotal": 26,
+   "semana": "Semana 1",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-05",
+   "categoria": "Ferrageiros",
+   "nTotal": 22,
+   "semana": "Semana 1",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-05",
+   "categoria": "Especialidades",
+   "nTotal": 1,
+   "semana": "Semana 1",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-06",
+   "categoria": "Carpinteiros",
+   "nTotal": 25,
+   "semana": "Semana 1",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-06",
+   "categoria": "Ferrageiros",
+   "nTotal": 21,
+   "semana": "Semana 1",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-06",
+   "categoria": "Especialidades",
+   "nTotal": 2,
+   "semana": "Semana 1",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-09",
+   "categoria": "Carpinteiros",
+   "nTotal": 24,
+   "semana": "Semana 2",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-09",
+   "categoria": "Ferrageiros",
+   "nTotal": 24,
+   "semana": "Semana 2",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-09",
+   "categoria": "Especialidades",
+   "nTotal": 1,
+   "semana": "Semana 2",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-10",
+   "categoria": "Carpinteiros",
+   "nTotal": 27,
+   "semana": "Semana 2",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-10",
+   "categoria": "Ferrageiros",
+   "nTotal": 20,
+   "semana": "Semana 2",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-10",
+   "categoria": "Especialidades",
+   "nTotal": 2,
+   "semana": "Semana 2",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-11",
+   "categoria": "Carpinteiros",
+   "nTotal": 32,
+   "semana": "Semana 2",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-11",
+   "categoria": "Ferrageiros",
+   "nTotal": 23,
+   "semana": "Semana 2",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-11",
+   "categoria": "Especialidades",
+   "nTotal": 2,
+   "semana": "Semana 2",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-12",
+   "categoria": "Carpinteiros",
+   "nTotal": 30,
+   "semana": "Semana 2",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-12",
+   "categoria": "Ferrageiros",
+   "nTotal": 22,
+   "semana": "Semana 2",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-12",
+   "categoria": "Especialidades",
+   "nTotal": 1,
+   "semana": "Semana 2",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-13",
+   "categoria": "Carpinteiros",
+   "nTotal": 27,
+   "semana": "Semana 2",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-13",
+   "categoria": "Ferrageiros",
+   "nTotal": 24,
+   "semana": "Semana 2",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-13",
+   "categoria": "Especialidades",
+   "nTotal": 2,
+   "semana": "Semana 2",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-16",
+   "categoria": "Carpinteiros",
+   "nTotal": 21,
+   "semana": "Semana 3",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-16",
+   "categoria": "Ferrageiros",
+   "nTotal": 24,
+   "semana": "Semana 3",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-16",
+   "categoria": "Especialidades",
+   "nTotal": 1,
+   "semana": "Semana 3",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-18",
+   "categoria": "Carpinteiros",
+   "nTotal": 27,
+   "semana": "Semana 3",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-18",
+   "categoria": "Ferrageiros",
+   "nTotal": 24,
+   "semana": "Semana 3",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-18",
+   "categoria": "Especialidades",
+   "nTotal": 2,
+   "semana": "Semana 3",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-19",
+   "categoria": "Carpinteiros",
+   "nTotal": 25,
+   "semana": "Semana 3",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-19",
+   "categoria": "Ferrageiros",
+   "nTotal": 27,
+   "semana": "Semana 3",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-19",
+   "categoria": "Especialidades",
+   "nTotal": 2,
+   "semana": "Semana 3",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-20",
+   "categoria": "Carpinteiros",
+   "nTotal": 25,
+   "semana": "Semana 3",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-20",
+   "categoria": "Ferrageiros",
+   "nTotal": 30,
+   "semana": "Semana 3",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-20",
+   "categoria": "Especialidades",
+   "nTotal": 2,
+   "semana": "Semana 3",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-23",
+   "categoria": "Carpinteiros",
+   "nTotal": 27,
+   "semana": "Semana 4",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-23",
+   "categoria": "Ferrageiros",
+   "nTotal": 28,
+   "semana": "Semana 4",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-23",
+   "categoria": "Especialidades",
+   "nTotal": 2,
+   "semana": "Semana 4",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-24",
+   "categoria": "Carpinteiros",
+   "nTotal": 25,
+   "semana": "Semana 4",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-24",
+   "categoria": "Ferrageiros",
+   "nTotal": 28,
+   "semana": "Semana 4",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-24",
+   "categoria": "Especialidades",
+   "nTotal": 2,
+   "semana": "Semana 4",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-25",
+   "categoria": "Carpinteiros",
+   "nTotal": 29,
+   "semana": "Semana 4",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-25",
+   "categoria": "Ferrageiros",
+   "nTotal": 28,
+   "semana": "Semana 4",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-25",
+   "categoria": "Especialidades",
+   "nTotal": 2,
+   "semana": "Semana 4",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-26",
+   "categoria": "Carpinteiros",
+   "nTotal": 29,
+   "semana": "Semana 4",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-26",
+   "categoria": "Ferrageiros",
+   "nTotal": 30,
+   "semana": "Semana 4",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-26",
+   "categoria": "Especialidades",
+   "nTotal": 2,
+   "semana": "Semana 4",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-27",
+   "categoria": "Carpinteiros",
+   "nTotal": 27,
+   "semana": "Semana 4",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-27",
+   "categoria": "Ferrageiros",
+   "nTotal": 30,
+   "semana": "Semana 4",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-27",
+   "categoria": "Especialidades",
+   "nTotal": 2,
+   "semana": "Semana 4",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-04-01",
+   "categoria": "Carpinteiros",
+   "nTotal": 30,
+   "semana": "Semana 1",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-01",
+   "categoria": "Ferrageiros",
+   "nTotal": 33,
+   "semana": "Semana 1",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-01",
+   "categoria": "Especialidades",
+   "nTotal": 6,
+   "semana": "Semana 1",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-01",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 1,
+   "semana": "Semana 1",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-02",
+   "categoria": "Carpinteiros",
+   "nTotal": 29,
+   "semana": "Semana 1",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-02",
+   "categoria": "Ferrageiros",
+   "nTotal": 34,
+   "semana": "Semana 1",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-02",
+   "categoria": "Especialidades",
+   "nTotal": 7,
+   "semana": "Semana 1",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-02",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 1",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-06",
+   "categoria": "Carpinteiros",
+   "nTotal": 20,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-06",
+   "categoria": "Ferrageiros",
+   "nTotal": 30,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-06",
+   "categoria": "Especialidades",
+   "nTotal": 10,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-06",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 2,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-07",
+   "categoria": "Carpinteiros",
+   "nTotal": 22,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-07",
+   "categoria": "Ferrageiros",
+   "nTotal": 29,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-07",
+   "categoria": "Especialidades",
+   "nTotal": 7,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-07",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-08",
+   "categoria": "Carpinteiros",
+   "nTotal": 24,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-08",
+   "categoria": "Ferrageiros",
+   "nTotal": 30,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-08",
+   "categoria": "Especialidades",
+   "nTotal": 12,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-08",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 2,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-09",
+   "categoria": "Carpinteiros",
+   "nTotal": 25,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-09",
+   "categoria": "Ferrageiros",
+   "nTotal": 26,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-09",
+   "categoria": "Especialidades",
+   "nTotal": 17,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-09",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 3,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-10",
+   "categoria": "Carpinteiros",
+   "nTotal": 24,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-10",
+   "categoria": "Ferrageiros",
+   "nTotal": 28,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-10",
+   "categoria": "Especialidades",
+   "nTotal": 9,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-10",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 2,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-13",
+   "categoria": "Carpinteiros",
+   "nTotal": 26,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-13",
+   "categoria": "Ferrageiros",
+   "nTotal": 35,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-13",
+   "categoria": "Especialidades",
+   "nTotal": 11,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-13",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 1,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-14",
+   "categoria": "Carpinteiros",
+   "nTotal": 26,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-14",
+   "categoria": "Ferrageiros",
+   "nTotal": 34,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-14",
+   "categoria": "Especialidades",
+   "nTotal": 11,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-14",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 1,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-15",
+   "categoria": "Carpinteiros",
+   "nTotal": 26,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-15",
+   "categoria": "Ferrageiros",
+   "nTotal": 33,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-15",
+   "categoria": "Especialidades",
+   "nTotal": 10,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-15",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 1,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-16",
+   "categoria": "Carpinteiros",
+   "nTotal": 27,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-16",
+   "categoria": "Ferrageiros",
+   "nTotal": 34,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-16",
+   "categoria": "Especialidades",
+   "nTotal": 13,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-16",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 2,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-17",
+   "categoria": "Carpinteiros",
+   "nTotal": 26,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-17",
+   "categoria": "Ferrageiros",
+   "nTotal": 44,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-17",
+   "categoria": "Especialidades",
+   "nTotal": 8,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-17",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 2,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-20",
+   "categoria": "Carpinteiros",
+   "nTotal": 25,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-20",
+   "categoria": "Ferrageiros",
+   "nTotal": 39,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-20",
+   "categoria": "Especialidades",
+   "nTotal": 11,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-20",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 3,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-21",
+   "categoria": "Carpinteiros",
+   "nTotal": 27,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-21",
+   "categoria": "Ferrageiros",
+   "nTotal": 43,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-21",
+   "categoria": "Especialidades",
+   "nTotal": 9,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-21",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 0,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-22",
+   "categoria": "Carpinteiros",
+   "nTotal": 25,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-22",
+   "categoria": "Ferrageiros",
+   "nTotal": 43,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-22",
+   "categoria": "Especialidades",
+   "nTotal": 10,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-22",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 1,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-23",
+   "categoria": "Carpinteiros",
+   "nTotal": 29,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-23",
+   "categoria": "Ferrageiros",
+   "nTotal": 39,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-23",
+   "categoria": "Especialidades",
+   "nTotal": 12,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-23",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 2,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-24",
+   "categoria": "Carpinteiros",
+   "nTotal": 30,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-24",
+   "categoria": "Ferrageiros",
+   "nTotal": 40,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-24",
+   "categoria": "Especialidades",
+   "nTotal": 9,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-24",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 2,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-27",
+   "categoria": "Carpinteiros",
+   "nTotal": 25,
+   "semana": "Semana 5",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-27",
+   "categoria": "Ferrageiros",
+   "nTotal": 34,
+   "semana": "Semana 5",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-27",
+   "categoria": "Especialidades",
+   "nTotal": 9,
+   "semana": "Semana 5",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-27",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 2,
+   "semana": "Semana 5",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-28",
+   "categoria": "Carpinteiros",
+   "nTotal": 30,
+   "semana": "Semana 5",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-28",
+   "categoria": "Ferrageiros",
+   "nTotal": 35,
+   "semana": "Semana 5",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-28",
+   "categoria": "Especialidades",
+   "nTotal": 10,
+   "semana": "Semana 5",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-28",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 2,
+   "semana": "Semana 5",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-29",
+   "categoria": "Carpinteiros",
+   "nTotal": 29,
+   "semana": "Semana 5",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-29",
+   "categoria": "Ferrageiros",
+   "nTotal": 34,
+   "semana": "Semana 5",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-29",
+   "categoria": "Especialidades",
+   "nTotal": 6,
+   "semana": "Semana 5",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-29",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 1,
+   "semana": "Semana 5",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-30",
+   "categoria": "Carpinteiros",
+   "nTotal": 27,
+   "semana": "Semana 5",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-30",
+   "categoria": "Ferrageiros",
+   "nTotal": 37,
+   "semana": "Semana 5",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-30",
+   "categoria": "Especialidades",
+   "nTotal": 7,
+   "semana": "Semana 5",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-30",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 2,
+   "semana": "Semana 5",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-05-04",
+   "categoria": "Carpinteiros",
+   "nTotal": 27,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-04",
+   "categoria": "Ferrageiros",
+   "nTotal": 38,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-04",
+   "categoria": "Especialidades",
+   "nTotal": 10,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-04",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 2,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-05",
+   "categoria": "Carpinteiros",
+   "nTotal": 27,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-05",
+   "categoria": "Ferrageiros",
+   "nTotal": 37,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-05",
+   "categoria": "Especialidades",
+   "nTotal": 11,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-05",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 3,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-06",
+   "categoria": "Carpinteiros",
+   "nTotal": 25,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-06",
+   "categoria": "Ferrageiros",
+   "nTotal": 36,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-06",
+   "categoria": "Especialidades",
+   "nTotal": 12,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-06",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 4,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-07",
+   "categoria": "Carpinteiros",
+   "nTotal": 25,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-07",
+   "categoria": "Ferrageiros",
+   "nTotal": 37,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-07",
+   "categoria": "Especialidades",
+   "nTotal": 9,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-07",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 5,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-08",
+   "categoria": "Carpinteiros",
+   "nTotal": 25,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-08",
+   "categoria": "Ferrageiros",
+   "nTotal": 34,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-08",
+   "categoria": "Especialidades",
+   "nTotal": 12,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-08",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 5,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-11",
+   "categoria": "Carpinteiros",
+   "nTotal": 23,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-11",
+   "categoria": "Ferrageiros",
+   "nTotal": 28,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-11",
+   "categoria": "Especialidades",
+   "nTotal": 11,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-11",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 1,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-12",
+   "categoria": "Carpinteiros",
+   "nTotal": 27,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-12",
+   "categoria": "Ferrageiros",
+   "nTotal": 32,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-12",
+   "categoria": "Especialidades",
+   "nTotal": 12,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-12",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 5,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-13",
+   "categoria": "Carpinteiros",
+   "nTotal": 25,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-13",
+   "categoria": "Ferrageiros",
+   "nTotal": 37,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-13",
+   "categoria": "Especialidades",
+   "nTotal": 9,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-13",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 2,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-14",
+   "categoria": "Carpinteiros",
+   "nTotal": 24,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-14",
+   "categoria": "Ferrageiros",
+   "nTotal": 32,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-14",
+   "categoria": "Especialidades",
+   "nTotal": 11,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-14",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 1,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-15",
+   "categoria": "Carpinteiros",
+   "nTotal": 23,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-15",
+   "categoria": "Ferrageiros",
+   "nTotal": 35,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-15",
+   "categoria": "Especialidades",
+   "nTotal": 7,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-15",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 4,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-18",
+   "categoria": "Carpinteiros",
+   "nTotal": 20,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-18",
+   "categoria": "Ferrageiros",
+   "nTotal": 28,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-18",
+   "categoria": "Especialidades",
+   "nTotal": 10,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-18",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 4,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-19",
+   "categoria": "Carpinteiros",
+   "nTotal": 26,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-19",
+   "categoria": "Ferrageiros",
+   "nTotal": 31,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-19",
+   "categoria": "Especialidades",
+   "nTotal": 12,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-19",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 4,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-20",
+   "categoria": "Carpinteiros",
+   "nTotal": 27,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-20",
+   "categoria": "Ferrageiros",
+   "nTotal": 31,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-20",
+   "categoria": "Especialidades",
+   "nTotal": 12,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-20",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 3,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-21",
+   "categoria": "Carpinteiros",
+   "nTotal": 26,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-21",
+   "categoria": "Ferrageiros",
+   "nTotal": 29,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-21",
+   "categoria": "Especialidades",
+   "nTotal": 13,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-21",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 4,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-22",
+   "categoria": "Carpinteiros",
+   "nTotal": 24,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-22",
+   "categoria": "Ferrageiros",
+   "nTotal": 34,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-22",
+   "categoria": "Especialidades",
+   "nTotal": 11,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-22",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 2,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-25",
+   "categoria": "Carpinteiros",
+   "nTotal": 25,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-25",
+   "categoria": "Ferrageiros",
+   "nTotal": 36,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-25",
+   "categoria": "Especialidades",
+   "nTotal": 11,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-25",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 3,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-26",
+   "categoria": "Carpinteiros",
+   "nTotal": 26,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-26",
+   "categoria": "Ferrageiros",
+   "nTotal": 35,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-26",
+   "categoria": "Especialidades",
+   "nTotal": 12,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-26",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 2,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-27",
+   "categoria": "Carpinteiros",
+   "nTotal": 19,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-27",
+   "categoria": "Ferrageiros",
+   "nTotal": 11,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-27",
+   "categoria": "Especialidades",
+   "nTotal": 11,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-27",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 2,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-28",
+   "categoria": "Carpinteiros",
+   "nTotal": 19,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-28",
+   "categoria": "Ferrageiros",
+   "nTotal": 32,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-28",
+   "categoria": "Especialidades",
+   "nTotal": 13,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-28",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 3,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-29",
+   "categoria": "Carpinteiros",
+   "nTotal": 24,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-29",
+   "categoria": "Ferrageiros",
+   "nTotal": 34,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-29",
+   "categoria": "Especialidades",
+   "nTotal": 9,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-29",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 2,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-06-01",
+   "categoria": "Carpinteiros",
+   "nTotal": 17,
+   "semana": "Semana 1",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-01",
+   "categoria": "Ferrageiros",
+   "nTotal": 40,
+   "semana": "Semana 1",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-01",
+   "categoria": "Especialidades",
+   "nTotal": 13,
+   "semana": "Semana 1",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-01",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 3,
+   "semana": "Semana 1",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-02",
+   "categoria": "Carpinteiros",
+   "nTotal": 18,
+   "semana": "Semana 1",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-02",
+   "categoria": "Ferrageiros",
+   "nTotal": 41,
+   "semana": "Semana 1",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-02",
+   "categoria": "Especialidades",
+   "nTotal": 14,
+   "semana": "Semana 1",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-02",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 1,
+   "semana": "Semana 1",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-03",
+   "categoria": "Carpinteiros",
+   "nTotal": 14,
+   "semana": "Semana 1",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-03",
+   "categoria": "Ferrageiros",
+   "nTotal": 29,
+   "semana": "Semana 1",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-03",
+   "categoria": "Especialidades",
+   "nTotal": 10,
+   "semana": "Semana 1",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-03",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 1,
+   "semana": "Semana 1",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-05",
+   "categoria": "Carpinteiros",
+   "nTotal": 19,
+   "semana": "Semana 1",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-05",
+   "categoria": "Ferrageiros",
+   "nTotal": 46,
+   "semana": "Semana 1",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-05",
+   "categoria": "Especialidades",
+   "nTotal": 13,
+   "semana": "Semana 1",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-05",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 5,
+   "semana": "Semana 1",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-08",
+   "categoria": "Carpinteiros",
+   "nTotal": 15,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-08",
+   "categoria": "Ferrageiros",
+   "nTotal": 38,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-08",
+   "categoria": "Especialidades",
+   "nTotal": 14,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-08",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 2,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-09",
+   "categoria": "Carpinteiros",
+   "nTotal": 19,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-09",
+   "categoria": "Ferrageiros",
+   "nTotal": 31,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-09",
+   "categoria": "Especialidades",
+   "nTotal": 13,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-09",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 2,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-10",
+   "categoria": "Carpinteiros",
+   "nTotal": 19,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-10",
+   "categoria": "Ferrageiros",
+   "nTotal": 38,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-10",
+   "categoria": "Especialidades",
+   "nTotal": 9,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-10",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 2,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-11",
+   "categoria": "Carpinteiros",
+   "nTotal": 19,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-11",
+   "categoria": "Ferrageiros",
+   "nTotal": 39,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-11",
+   "categoria": "Especialidades",
+   "nTotal": 12,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-11",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 1,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-12",
+   "categoria": "Carpinteiros",
+   "nTotal": 20,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-12",
+   "categoria": "Ferrageiros",
+   "nTotal": 40,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-12",
+   "categoria": "Especialidades",
+   "nTotal": 12,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-12",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 2,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-15",
+   "categoria": "Carpinteiros",
+   "nTotal": 16,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-15",
+   "categoria": "Ferrageiros",
+   "nTotal": 41,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-15",
+   "categoria": "Especialidades",
+   "nTotal": 19,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-15",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 6,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-16",
+   "categoria": "Carpinteiros",
+   "nTotal": 21,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-16",
+   "categoria": "Ferrageiros",
+   "nTotal": 42,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-16",
+   "categoria": "Especialidades",
+   "nTotal": 17,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-16",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 5,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-17",
+   "categoria": "Carpinteiros",
+   "nTotal": 21,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-17",
+   "categoria": "Ferrageiros",
+   "nTotal": 46,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-17",
+   "categoria": "Especialidades",
+   "nTotal": 17,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-17",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 5,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-18",
+   "categoria": "Carpinteiros",
+   "nTotal": 23,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-18",
+   "categoria": "Ferrageiros",
+   "nTotal": 48,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-18",
+   "categoria": "Especialidades",
+   "nTotal": 16,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-18",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 6,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-19",
+   "categoria": "Carpinteiros",
+   "nTotal": 25,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-19",
+   "categoria": "Ferrageiros",
+   "nTotal": 44,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-19",
+   "categoria": "Especialidades",
+   "nTotal": 17,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-19",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 6,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-22",
+   "categoria": "Carpinteiros",
+   "nTotal": 26,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-22",
+   "categoria": "Ferrageiros",
+   "nTotal": 45,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-22",
+   "categoria": "Especialidades",
+   "nTotal": 21,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-22",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 16,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-23",
+   "categoria": "Carpinteiros",
+   "nTotal": 29,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-23",
+   "categoria": "Ferrageiros",
+   "nTotal": 46,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-23",
+   "categoria": "Especialidades",
+   "nTotal": 16,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-23",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 16,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-07-01",
+   "categoria": "Carpinteiros",
+   "nTotal": 21,
+   "semana": "Semana 1",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-01",
+   "categoria": "Ferrageiros",
+   "nTotal": 35,
+   "semana": "Semana 1",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-01",
+   "categoria": "Especialidades",
+   "nTotal": 17,
+   "semana": "Semana 1",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-01",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 9,
+   "semana": "Semana 1",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-02",
+   "categoria": "Carpinteiros",
+   "nTotal": 21,
+   "semana": "Semana 1",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-02",
+   "categoria": "Ferrageiros",
+   "nTotal": 36,
+   "semana": "Semana 1",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-02",
+   "categoria": "Especialidades",
+   "nTotal": 17,
+   "semana": "Semana 1",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-02",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 15,
+   "semana": "Semana 1",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-03",
+   "categoria": "Carpinteiros",
+   "nTotal": 23,
+   "semana": "Semana 1",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-03",
+   "categoria": "Ferrageiros",
+   "nTotal": 38,
+   "semana": "Semana 1",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-03",
+   "categoria": "Especialidades",
+   "nTotal": 14,
+   "semana": "Semana 1",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-03",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 10,
+   "semana": "Semana 1",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-06",
+   "categoria": "Carpinteiros",
+   "nTotal": 24,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-06",
+   "categoria": "Ferrageiros",
+   "nTotal": 33,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-06",
+   "categoria": "Especialidades",
+   "nTotal": 19,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-06",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 18,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-07",
+   "categoria": "Carpinteiros",
+   "nTotal": 22,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-07",
+   "categoria": "Ferrageiros",
+   "nTotal": 37,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-07",
+   "categoria": "Especialidades",
+   "nTotal": 19,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-07",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 16,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-08",
+   "categoria": "Carpinteiros",
+   "nTotal": 23,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-08",
+   "categoria": "Ferrageiros",
+   "nTotal": 29,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-08",
+   "categoria": "Especialidades",
+   "nTotal": 21,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-08",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 18,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-09",
+   "categoria": "Carpinteiros",
+   "nTotal": 25,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-09",
+   "categoria": "Ferrageiros",
+   "nTotal": 29,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-09",
+   "categoria": "Especialidades",
+   "nTotal": 21,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-09",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 15,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-10",
+   "categoria": "Carpinteiros",
+   "nTotal": 25,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-10",
+   "categoria": "Ferrageiros",
+   "nTotal": 35,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-10",
+   "categoria": "Especialidades",
+   "nTotal": 21,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-10",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 16,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-13",
+   "categoria": "Carpinteiros",
+   "nTotal": 23,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-13",
+   "categoria": "Ferrageiros",
+   "nTotal": 28,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-13",
+   "categoria": "Especialidades",
+   "nTotal": 18,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-13",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 15,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-14",
+   "categoria": "Carpinteiros",
+   "nTotal": 25,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-14",
+   "categoria": "Ferrageiros",
+   "nTotal": 28,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-14",
+   "categoria": "Especialidades",
+   "nTotal": 17,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-14",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 14,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-15",
+   "categoria": "Carpinteiros",
+   "nTotal": 23,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-15",
+   "categoria": "Ferrageiros",
+   "nTotal": 33,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-15",
+   "categoria": "Especialidades",
+   "nTotal": 17,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-15",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 15,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-16",
+   "categoria": "Carpinteiros",
+   "nTotal": 18,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-16",
+   "categoria": "Ferrageiros",
+   "nTotal": 34,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-16",
+   "categoria": "Especialidades",
+   "nTotal": 25,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-16",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 16,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-17",
+   "categoria": "Carpinteiros",
+   "nTotal": 19,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-17",
+   "categoria": "Ferrageiros",
+   "nTotal": 29,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-17",
+   "categoria": "Especialidades",
+   "nTotal": 22,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-17",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 16,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-20",
+   "categoria": "Carpinteiros",
+   "nTotal": 25,
+   "semana": "Semana 4",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-20",
+   "categoria": "Ferrageiros",
+   "nTotal": 29,
+   "semana": "Semana 4",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-20",
+   "categoria": "Especialidades",
+   "nTotal": 22,
+   "semana": "Semana 4",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-20",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 9,
+   "semana": "Semana 4",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-21",
+   "categoria": "Carpinteiros",
+   "nTotal": 24,
+   "semana": "Semana 4",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-21",
+   "categoria": "Ferrageiros",
+   "nTotal": 28,
+   "semana": "Semana 4",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-21",
+   "categoria": "Especialidades",
+   "nTotal": 23,
+   "semana": "Semana 4",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-21",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 15,
+   "semana": "Semana 4",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-22",
+   "categoria": "Carpinteiros",
+   "nTotal": 25,
+   "semana": "Semana 4",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-22",
+   "categoria": "Ferrageiros",
+   "nTotal": 23,
+   "semana": "Semana 4",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-22",
+   "categoria": "Especialidades",
+   "nTotal": 22,
+   "semana": "Semana 4",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-22",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 10,
+   "semana": "Semana 4",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-01-02",
+   "categoria": "Total Em Obra",
+   "nTotal": 68,
+   "semana": "Semana 1",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-05",
+   "categoria": "Total Em Obra",
+   "nTotal": 85,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-06",
+   "categoria": "Total Em Obra",
+   "nTotal": 82,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-07",
+   "categoria": "Total Em Obra",
+   "nTotal": 87,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-08",
+   "categoria": "Total Em Obra",
+   "nTotal": 84,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-09",
+   "categoria": "Total Em Obra",
+   "nTotal": 80,
+   "semana": "Semana 2",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-12",
+   "categoria": "Total Em Obra",
+   "nTotal": 99,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-13",
+   "categoria": "Total Em Obra",
+   "nTotal": 94,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-14",
+   "categoria": "Total Em Obra",
+   "nTotal": 105,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-15",
+   "categoria": "Total Em Obra",
+   "nTotal": 104,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-16",
+   "categoria": "Total Em Obra",
+   "nTotal": 96,
+   "semana": "Semana 3",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-19",
+   "categoria": "Total Em Obra",
+   "nTotal": 103,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-20",
+   "categoria": "Total Em Obra",
+   "nTotal": 108,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-21",
+   "categoria": "Total Em Obra",
+   "nTotal": 102,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-22",
+   "categoria": "Total Em Obra",
+   "nTotal": 98,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-23",
+   "categoria": "Total Em Obra",
+   "nTotal": 99,
+   "semana": "Semana 4",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-26",
+   "categoria": "Total Em Obra",
+   "nTotal": 100,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-27",
+   "categoria": "Total Em Obra",
+   "nTotal": 102,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-28",
+   "categoria": "Total Em Obra",
+   "nTotal": 105,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-29",
+   "categoria": "Total Em Obra",
+   "nTotal": 103,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-01-30",
+   "categoria": "Total Em Obra",
+   "nTotal": 106,
+   "semana": "Semana 5",
+   "mes": "Janeiro"
+  },
+  {
+   "data": "2026-02-02",
+   "categoria": "Total Em Obra",
+   "nTotal": 102,
+   "semana": "Semana 1",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-03",
+   "categoria": "Total Em Obra",
+   "nTotal": 107,
+   "semana": "Semana 1",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-04",
+   "categoria": "Total Em Obra",
+   "nTotal": 99,
+   "semana": "Semana 1",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-05",
+   "categoria": "Total Em Obra",
+   "nTotal": 96,
+   "semana": "Semana 1",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-06",
+   "categoria": "Total Em Obra",
+   "nTotal": 101,
+   "semana": "Semana 1",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-09",
+   "categoria": "Total Em Obra",
+   "nTotal": 108,
+   "semana": "Semana 2",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-10",
+   "categoria": "Total Em Obra",
+   "nTotal": 107,
+   "semana": "Semana 2",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-11",
+   "categoria": "Total Em Obra",
+   "nTotal": 90,
+   "semana": "Semana 2",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-12",
+   "categoria": "Total Em Obra",
+   "nTotal": 91,
+   "semana": "Semana 2",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-13",
+   "categoria": "Total Em Obra",
+   "nTotal": 101,
+   "semana": "Semana 2",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-16",
+   "categoria": "Total Em Obra",
+   "nTotal": 107,
+   "semana": "Semana 3",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-18",
+   "categoria": "Total Em Obra",
+   "nTotal": 121,
+   "semana": "Semana 3",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-19",
+   "categoria": "Total Em Obra",
+   "nTotal": 120,
+   "semana": "Semana 3",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-20",
+   "categoria": "Total Em Obra",
+   "nTotal": 121,
+   "semana": "Semana 3",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-23",
+   "categoria": "Total Em Obra",
+   "nTotal": 114,
+   "semana": "Semana 4",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-24",
+   "categoria": "Total Em Obra",
+   "nTotal": 122,
+   "semana": "Semana 4",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-25",
+   "categoria": "Total Em Obra",
+   "nTotal": 121,
+   "semana": "Semana 4",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-26",
+   "categoria": "Total Em Obra",
+   "nTotal": 121,
+   "semana": "Semana 4",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-02-27",
+   "categoria": "Total Em Obra",
+   "nTotal": 122,
+   "semana": "Semana 4",
+   "mes": "Fevereiro"
+  },
+  {
+   "data": "2026-04-01",
+   "categoria": "Total Em Obra",
+   "nTotal": 124,
+   "semana": "Semana 1",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-02",
+   "categoria": "Total Em Obra",
+   "nTotal": 123,
+   "semana": "Semana 1",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-06",
+   "categoria": "Total Em Obra",
+   "nTotal": 127,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-07",
+   "categoria": "Total Em Obra",
+   "nTotal": 129,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-08",
+   "categoria": "Total Em Obra",
+   "nTotal": 138,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-09",
+   "categoria": "Total Em Obra",
+   "nTotal": 124,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-10",
+   "categoria": "Total Em Obra",
+   "nTotal": 130,
+   "semana": "Semana 2",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-13",
+   "categoria": "Total Em Obra",
+   "nTotal": 133,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-14",
+   "categoria": "Total Em Obra",
+   "nTotal": 127,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-15",
+   "categoria": "Total Em Obra",
+   "nTotal": 133,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-16",
+   "categoria": "Total Em Obra",
+   "nTotal": 140,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-17",
+   "categoria": "Total Em Obra",
+   "nTotal": 134,
+   "semana": "Semana 3",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-20",
+   "categoria": "Total Em Obra",
+   "nTotal": 135,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-21",
+   "categoria": "Total Em Obra",
+   "nTotal": 145,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-22",
+   "categoria": "Total Em Obra",
+   "nTotal": 146,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-23",
+   "categoria": "Total Em Obra",
+   "nTotal": 136,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-24",
+   "categoria": "Total Em Obra",
+   "nTotal": 133,
+   "semana": "Semana 4",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-27",
+   "categoria": "Total Em Obra",
+   "nTotal": 124,
+   "semana": "Semana 5",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-28",
+   "categoria": "Total Em Obra",
+   "nTotal": 134,
+   "semana": "Semana 5",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-29",
+   "categoria": "Total Em Obra",
+   "nTotal": 136,
+   "semana": "Semana 5",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-04-30",
+   "categoria": "Total Em Obra",
+   "nTotal": 135,
+   "semana": "Semana 5",
+   "mes": "Abril"
+  },
+  {
+   "data": "2026-05-04",
+   "categoria": "Total Em Obra",
+   "nTotal": 141,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-05",
+   "categoria": "Total Em Obra",
+   "nTotal": 151,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-06",
+   "categoria": "Total Em Obra",
+   "nTotal": 146,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-07",
+   "categoria": "Total Em Obra",
+   "nTotal": 145,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-08",
+   "categoria": "Total Em Obra",
+   "nTotal": 142,
+   "semana": "Semana 1",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-11",
+   "categoria": "Total Em Obra",
+   "nTotal": 136,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-12",
+   "categoria": "Total Em Obra",
+   "nTotal": 149,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-13",
+   "categoria": "Total Em Obra",
+   "nTotal": 139,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-14",
+   "categoria": "Total Em Obra",
+   "nTotal": 134,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-15",
+   "categoria": "Total Em Obra",
+   "nTotal": 134,
+   "semana": "Semana 2",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-18",
+   "categoria": "Total Em Obra",
+   "nTotal": 131,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-19",
+   "categoria": "Total Em Obra",
+   "nTotal": 139,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-20",
+   "categoria": "Total Em Obra",
+   "nTotal": 138,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-21",
+   "categoria": "Total Em Obra",
+   "nTotal": 139,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-22",
+   "categoria": "Total Em Obra",
+   "nTotal": 132,
+   "semana": "Semana 3",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-25",
+   "categoria": "Total Em Obra",
+   "nTotal": 141,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-26",
+   "categoria": "Total Em Obra",
+   "nTotal": 148,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-27",
+   "categoria": "Total Em Obra",
+   "nTotal": 98,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-28",
+   "categoria": "Total Em Obra",
+   "nTotal": 126,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-05-29",
+   "categoria": "Total Em Obra",
+   "nTotal": 141,
+   "semana": "Semana 4",
+   "mes": "Maio"
+  },
+  {
+   "data": "2026-06-01",
+   "categoria": "Total Em Obra",
+   "nTotal": 144,
+   "semana": "Semana 1",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-02",
+   "categoria": "Total Em Obra",
+   "nTotal": 138,
+   "semana": "Semana 1",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-03",
+   "categoria": "Total Em Obra",
+   "nTotal": 108,
+   "semana": "Semana 1",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-05",
+   "categoria": "Total Em Obra",
+   "nTotal": 149,
+   "semana": "Semana 1",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-08",
+   "categoria": "Total Em Obra",
+   "nTotal": 146,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-09",
+   "categoria": "Total Em Obra",
+   "nTotal": 137,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-11",
+   "categoria": "Total Em Obra",
+   "nTotal": 139,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-12",
+   "categoria": "Total Em Obra",
+   "nTotal": 139,
+   "semana": "Semana 2",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-15",
+   "categoria": "Total Em Obra",
+   "nTotal": 154,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-16",
+   "categoria": "Total Em Obra",
+   "nTotal": 156,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-17",
+   "categoria": "Total Em Obra",
+   "nTotal": 157,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-18",
+   "categoria": "Total Em Obra",
+   "nTotal": 154,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-19",
+   "categoria": "Total Em Obra",
+   "nTotal": 177,
+   "semana": "Semana 3",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-22",
+   "categoria": "Total Em Obra",
+   "nTotal": 182,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-23",
+   "categoria": "Total Em Obra",
+   "nTotal": 174,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-24",
+   "categoria": "Total Em Obra",
+   "nTotal": 175,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-25",
+   "categoria": "Total Em Obra",
+   "nTotal": 172,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-26",
+   "categoria": "Total Em Obra",
+   "nTotal": 157,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-30",
+   "categoria": "Total Em Obra",
+   "nTotal": 159,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-07-01",
+   "categoria": "Total Em Obra",
+   "nTotal": 154,
+   "semana": "Semana 1",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-02",
+   "categoria": "Total Em Obra",
+   "nTotal": 160,
+   "semana": "Semana 1",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-03",
+   "categoria": "Total Em Obra",
+   "nTotal": 152,
+   "semana": "Semana 1",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-06",
+   "categoria": "Total Em Obra",
+   "nTotal": 156,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-07",
+   "categoria": "Total Em Obra",
+   "nTotal": 162,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-08",
+   "categoria": "Total Em Obra",
+   "nTotal": 158,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-09",
+   "categoria": "Total Em Obra",
+   "nTotal": 151,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-10",
+   "categoria": "Total Em Obra",
+   "nTotal": 152,
+   "semana": "Semana 2",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-13",
+   "categoria": "Total Em Obra",
+   "nTotal": 149,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-14",
+   "categoria": "Total Em Obra",
+   "nTotal": 148,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-15",
+   "categoria": "Total Em Obra",
+   "nTotal": 152,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-16",
+   "categoria": "Total Em Obra",
+   "nTotal": 151,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-17",
+   "categoria": "Total Em Obra",
+   "nTotal": 151,
+   "semana": "Semana 3",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-20",
+   "categoria": "Total Em Obra",
+   "nTotal": 149,
+   "semana": "Semana 4",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-21",
+   "categoria": "Total Em Obra",
+   "nTotal": 163,
+   "semana": "Semana 4",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-06-24",
+   "categoria": "Carpinteiros",
+   "nTotal": 27,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-24",
+   "categoria": "Ferrageiros",
+   "nTotal": 47,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-24",
+   "categoria": "Especialidades",
+   "nTotal": 19,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-24",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 14,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-25",
+   "categoria": "Carpinteiros",
+   "nTotal": 26,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-25",
+   "categoria": "Ferrageiros",
+   "nTotal": 41,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-25",
+   "categoria": "Especialidades",
+   "nTotal": 23,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-25",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 12,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-26",
+   "categoria": "Carpinteiros",
+   "nTotal": 25,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-26",
+   "categoria": "Ferrageiros",
+   "nTotal": 43,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-26",
+   "categoria": "Especialidades",
+   "nTotal": 17,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-26",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 11,
+   "semana": "Semana 4",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-30",
+   "categoria": "Carpinteiros",
+   "nTotal": 27,
+   "semana": "Semana 5",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-30",
+   "categoria": "Ferrageiros",
+   "nTotal": 43,
+   "semana": "Semana 5",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-30",
+   "categoria": "Especialidades",
+   "nTotal": 16,
+   "semana": "Semana 5",
+   "mes": "Junho"
+  },
+  {
+   "data": "2026-06-30",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 11,
+   "semana": "Semana 5",
+   "mes": "Junho"
+  }
+ ]
+}
