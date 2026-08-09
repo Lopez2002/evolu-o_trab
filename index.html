@@ -377,6 +377,30 @@ function buildDatasets(map, keys){
   }));
 }
 
+function computeAxisRanges(datasets){
+  const catVals = [], totVals = [];
+  datasets.forEach(ds=>{
+    (ds.data||[]).forEach(v=>{
+      if(v===null || v===undefined) return;
+      (ds.yAxisID==='y1' ? totVals : catVals).push(v);
+    });
+  });
+  const hasCats = catVals.length>0, hasTotal = totVals.length>0;
+  if(!hasCats || !hasTotal) return { split:false };
+
+  const catMax = Math.max(...catVals);
+  const yMax = catMax / 0.42; // categorias ficam confinadas ao ~42% inferior do gráfico
+
+  const totalMin = Math.min(...totVals), totalMax = Math.max(...totVals);
+  const DMIN=0.56, DMAX=0.94; // Total Em Obra ocupa a faixa 56%-94% do gráfico (sempre acima das categorias)
+  const totalRange = (totalMax - totalMin) || Math.max(totalMax*0.05, 1);
+  const axisRange = totalRange / (DMAX - DMIN);
+  const y1Min = totalMin - DMIN*axisRange;
+  const y1Max = y1Min + axisRange;
+
+  return { split:true, yMax, y1Min, y1Max };
+}
+
 function drawChart(labels, datasets){
   registerPluginsOnce();
   const wrap = document.getElementById('chartwrap');
@@ -387,6 +411,7 @@ function drawChart(labels, datasets){
   }
   const ctx = document.getElementById('lineChart');
   if(mainChart) mainChart.destroy();
+  const ranges = computeAxisRanges(datasets);
   mainChart = new Chart(ctx, {
     type:'line',
     data:{ labels, datasets },
@@ -399,10 +424,10 @@ function drawChart(labels, datasets){
       } },
       scales:{
         x:{ grid:{display:false}, ticks:{font:{family:"'IBM Plex Mono'",size:11.5}, color:'#16324F'} },
-        y:{ position:'left', grid:{color:'#EDE8DA'}, ticks:{font:{family:"'IBM Plex Mono'",size:11.5}, color:'#16324F'}, beginAtZero:true,
-            title:{ display:true, text:'Categorias', font:{family:"'IBM Plex Mono'",size:10}, color:'#5B6B7C' } },
-        y1:{ position:'right', grid:{display:false}, ticks:{font:{family:"'IBM Plex Mono'",size:11.5}, color:'#16324F'}, beginAtZero:false,
-            title:{ display:true, text:'Total Em Obra', font:{family:"'IBM Plex Mono'",size:10}, color:'#5B6B7C' } }
+        y:{ position:'left', min:0, max: ranges.split ? ranges.yMax : undefined, beginAtZero:true,
+            grid:{color:'#EDE8DA'}, ticks:{font:{family:"'IBM Plex Mono'",size:11.5}, color:'#16324F'} },
+        y1:{ position:'right', min: ranges.split ? ranges.y1Min : undefined, max: ranges.split ? ranges.y1Max : undefined,
+            grid:{display:false}, ticks:{display:false} } // sem números à direita — evita sobrepor as etiquetas de categoria
       }
     }
   });
