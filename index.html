@@ -21,7 +21,8 @@
     --grid-blue:rgba(255,255,255,0.07);
   }
   *{box-sizing:border-box;}
-  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;}
+  html{overflow-x:hidden;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;overflow-x:hidden;max-width:100vw;}
   ::selection{background:var(--amber);color:var(--navy);}
 
   header{
@@ -93,8 +94,7 @@
     margin:0 0 2px;letter-spacing:.01em;
   }
   .panel .sub{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--steel);margin-bottom:8px;display:block;}
-  .chartwrap{position:relative;height:520px;overflow-x:auto;overflow-y:hidden;}
-  .chartinner{position:relative;height:100%;}
+  .chartwrap{position:relative;height:520px;}
   canvas{max-width:100%;}
 
   footer{
@@ -373,16 +373,14 @@ function buildDatasets(map, keys){
     label:cat, data:keys.map(k=> (map.get(k)||{})[cat] ?? null),
     borderColor:COLORS[cat], backgroundColor:COLORS[cat],
     tension:.25, pointRadius:0, pointHoverRadius:4, pointHitRadius:10, borderWidth: cat==='Total Em Obra'?3:2.25,
-    spanGaps:true
+    spanGaps:true, yAxisID: cat==='Total Em Obra' ? 'y1' : 'y'
   }));
 }
 
 function drawChart(labels, datasets){
   registerPluginsOnce();
   const wrap = document.getElementById('chartwrap');
-  // largura mínima por ponto para os valores terem espaço — permite scroll horizontal em vez de espremer
-  const minWidth = Math.max(wrap.clientWidth, labels.length * 46 + 90);
-  wrap.innerHTML = `<div class="chartinner" style="min-width:${minWidth}px;"><canvas id="lineChart"></canvas></div>`;
+  wrap.innerHTML = '<canvas id="lineChart"></canvas>';
   if(typeof Chart === 'undefined'){
     wrap.innerHTML = '<div class="errbox">Não foi possível carregar a biblioteca de gráficos (rede bloqueou todas as fontes tentadas). Fala com o teu departamento de TI, ou abre o site noutra rede/navegador.</div>';
     return;
@@ -400,8 +398,11 @@ function drawChart(labels, datasets){
         titleFont:{family:"'IBM Plex Mono'",size:12}, bodyFont:{family:"'IBM Plex Mono'",size:12}
       } },
       scales:{
-        x:{ grid:{display:false}, ticks:{font:{family:"'IBM Plex Mono'",size:11.5}} },
-        y:{ grid:{color:'#EDE8DA'}, ticks:{font:{family:"'IBM Plex Mono'",size:11.5}}, beginAtZero:true }
+        x:{ grid:{display:false}, ticks:{font:{family:"'IBM Plex Mono'",size:11.5}, color:'#16324F'} },
+        y:{ position:'left', grid:{color:'#EDE8DA'}, ticks:{font:{family:"'IBM Plex Mono'",size:11.5}, color:'#16324F'}, beginAtZero:true,
+            title:{ display:true, text:'Categorias', font:{family:"'IBM Plex Mono'",size:10}, color:'#5B6B7C' } },
+        y1:{ position:'right', grid:{display:false}, ticks:{font:{family:"'IBM Plex Mono'",size:11.5}, color:'#16324F'}, beginAtZero:false,
+            title:{ display:true, text:'Total Em Obra', font:{family:"'IBM Plex Mono'",size:10}, color:'#5B6B7C' } }
       }
     }
   });
