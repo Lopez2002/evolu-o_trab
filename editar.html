@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Introduzir leitura diária — Obra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#10243E; --navy-2:#16324F; --paper:#F5F2EA; --paper-2:#ECE7DA;
+    --amber:#E8A33D; --amber-dk:#C97F1E; --steel:#5B6B7C; --rebar:#C1443A; --ink:#1B2733; --line:#D8D2C1;
+    --grid-blue:rgba(255,255,255,0.07); --ok:#2E7D32;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;}
+  header{
+    background:
+      repeating-linear-gradient(0deg, var(--grid-blue) 0 1px, transparent 1px 28px),
+      repeating-linear-gradient(90deg, var(--grid-blue) 0 1px, transparent 1px 28px),
+      linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);
+    color:var(--paper); padding:26px 5vw; border-bottom:6px solid var(--amber);
+  }
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin:0 0 6px;}
+  h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(24px,4vw,36px);margin:0;line-height:1;}
+  main{max-width:640px;margin:0 auto;padding:28px 5vw 60px;}
+  .panel{background:#fff;border:1px solid var(--line);padding:22px 24px;margin-bottom:18px;}
+  .panel h2{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:600;margin:0 0 4px;}
+  .panel .sub{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--steel);display:block;margin-bottom:16px;}
+  label{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--steel);margin-bottom:5px;}
+  input[type=text],input[type=password],input[type=date],input[type=number]{
+    width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:3px;
+    font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--ink);margin-bottom:14px;background:var(--paper);
+  }
+  input:focus{outline:none;border-color:var(--amber-dk);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 14px;}
+  .catrow{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:10px;margin-bottom:12px;}
+  .catdot{width:11px;height:11px;border-radius:50%;flex:none;}
+  .catrow label{margin:0;}
+  button{
+    font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:.02em;
+    background:var(--navy);color:var(--paper);border:none;padding:13px 20px;border-radius:3px;cursor:pointer;width:100%;
+  }
+  button:hover{background:var(--navy-2);}
+  button:disabled{opacity:.5;cursor:default;}
+  .msg{font-family:'IBM Plex Mono',monospace;font-size:12.5px;padding:10px 12px;border-radius:3px;margin-top:12px;display:none;}
+  .msg.ok{display:block;background:#E9F5EA;color:var(--ok);border:1px solid #BFE0C2;}
+  .msg.err{display:block;background:#FBEAE8;color:var(--rebar);border:1px solid #F0C4BE;}
+  .msg.info{display:block;background:var(--paper-2);color:var(--steel);border:1px solid var(--line);}
+  .toggle{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--amber-dk);cursor:pointer;text-decoration:underline;background:none;border:none;padding:0;width:auto;margin-bottom:10px;}
+  #configBox{display:none;}
+  a{color:var(--amber-dk);}
+</style>
+</head>
+<body>
+<header>
+  <p class="eyebrow">Controlo Geral de Trabalhadores — Obra</p>
+  <h1>Introduzir leitura diária</h1>
+</header>
+<main>
+
+  <div class="panel">
+    <h2>1. Ligação ao GitHub</h2>
+    <span class="sub">Só precisas de preencher isto uma vez — fica guardado neste browser</span>
+    <button type="button" class="toggle" id="toggleConfig">mostrar / alterar ligação</button>
+    <div id="configBox">
+      <div class="grid2">
+        <div><label>Utilizador GitHub</label><input type="text" id="ghOwner" placeholder="ex: joaosilva"></div>
+        <div><label>Nome do repositório</label><input type="text" id="ghRepo" placeholder="ex: obra-dashboard"></div>
+      </div>
+      <label>Personal Access Token (fine-grained, permissão Contents: Read and write)</label>
+      <input type="password" id="ghToken" placeholder="ghp_...">
+      <button type="button" id="saveConfig">Guardar ligação</button>
+      <div class="msg info" id="configMsg" style="display:block;">A ligação fica guardada só neste browser — nunca é publicada no site.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>2. Leitura de hoje</h2>
+    <span class="sub" id="statusLine">A carregar dados atuais…</span>
+
+    <label>Data</label>
+    <input type="date" id="fData">
+
+    <div id="catInputs"></div>
+
+    <button type="button" id="btnGuardar">Guardar leitura</button>
+    <div class="msg" id="resultMsg"></div>
+  </div>
+
+</main>
+<script>
+const CATS = [
+  {key:'Carpinteiros', color:'#E8A33D'},
+  {key:'Ferrageiros', color:'#5B6B7C'},
+  {key:'Especialidades', color:'#C1443A'},
+  {key:'Gesso Cartonado', color:'#16324F'},
+  {key:'Total Em Obra', color:'#1B1B1B'}
+];
+const MESES = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+
+function b64EncodeUtf8(str){ return btoa(unescape(encodeURIComponent(str))); }
+function b64DecodeUtf8(str){ return decodeURIComponent(escape(atob(str))); }
+
+function loadCfg(){
+  return {
+    owner: localStorage.getItem('gh_owner')||'',
+    repo: localStorage.getItem('gh_repo')||'',
+    token: localStorage.getItem('gh_token')||''
+  };
+}
+function cfgComplete(c){ return c.owner && c.repo && c.token; }
+
+document.getElementById('toggleConfig').addEventListener('click', ()=>{
+  const box = document.getElementById('configBox');
+  box.style.display = box.style.display==='none' ? 'block' : 'none';
+});
+
+function initConfigFields(){
+  const c = loadCfg();
+  document.getElementById('ghOwner').value = c.owner;
+  document.getElementById('ghRepo').value = c.repo;
+  document.getElementById('ghToken').value = c.token;
+  if(!cfgComplete(c)) document.getElementById('configBox').style.display = 'block';
+}
+
+document.getElementById('saveConfig').addEventListener('click', ()=>{
+  localStorage.setItem('gh_owner', document.getElementById('ghOwner').value.trim());
+  localStorage.setItem('gh_repo', document.getElementById('ghRepo').value.trim());
+  localStorage.setItem('gh_token', document.getElementById('ghToken').value.trim());
+  document.getElementById('configMsg').textContent = 'Ligação guardada.';
+  boot();
+});
+
+function buildCatInputs(){
+  const wrap = document.getElementById('catInputs');
+  wrap.innerHTML = CATS.map(c=>`
+    <div class="catrow">
+      <span class="catdot" style="background:${c.color};"></span>
+      <div style="width:100%;">
+        <label>${c.key}</label>
+        <input type="number" min="0" step="1" id="cat_${c.key.replace(/\s+/g,'_')}" placeholder="0">
+      </div>
+    </div>`).join('');
+}
+
+let RAW = null;
+
+async function ghGetFile(cfg){
+  const res = await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/dados.json`, {
+    headers:{ Authorization:`Bearer ${cfg.token}`, 'Accept':'application/vnd.github+json' }
+  });
+  if(!res.ok) throw new Error('Não consegui ler dados.json no GitHub (HTTP '+res.status+'). Confirma utilizador, repositório e token.');
+  const j = await res.json();
+  const content = JSON.parse(b64DecodeUtf8(j.content));
+  return { content, sha: j.sha };
+}
+
+async function ghPutFile(cfg, content, sha, message){
+  const body = { message, content: b64EncodeUtf8(JSON.stringify(content, null, 1)), sha };
+  const res = await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/dados.json`, {
+    method:'PUT',
+    headers:{ Authorization:`Bearer ${cfg.token}`, 'Content-Type':'application/json' },
+    body: JSON.stringify(body)
+  });
+  if(!res.ok){
+    const t = await res.text();
+    throw new Error('GitHub recusou a atualização (HTTP '+res.status+'). '+t.slice(0,200));
+  }
+  return res.json();
+}
+
+function semanaMesPara(dataISO, registos){
+  const d = new Date(dataISO+'T00:00:00');
+  const mes = MESES[d.getMonth()];
+  // encontra o último registo existente (qualquer categoria) antes desta data
+  const anteriores = registos.filter(r=>r.data < dataISO).sort((a,b)=>a.data.localeCompare(b.data));
+  if(anteriores.length===0) return { semana:'Semana 1', mes };
+  const ultimo = anteriores[anteriores.length-1];
+  if(ultimo.mes !== mes) return { semana:'Semana 1', mes }; // primeiro dia do mês novo
+
+  const weekStart = (dt)=>{ const x=new Date(dt); const wd=(x.getDay()+6)%7; x.setDate(x.getDate()-wd); return x.toISOString().slice(0,10); };
+  const wsUltimo = weekStart(ultimo.data+'T00:00:00');
+  const wsAtual = weekStart(dataISO+'T00:00:00');
+  const numUltimo = parseInt(ultimo.semana.match(/\d+/)[0]);
+  const semana = (wsAtual === wsUltimo) ? numUltimo : numUltimo + 1;
+  return { semana:'Semana '+semana, mes };
+}
+
+async function boot(){
+  const cfg = loadCfg();
+  initConfigFields();
+  buildCatInputs();
+  document.getElementById('fData').valueAsDate = new Date();
+
+  if(!cfgComplete(cfg)){
+    document.getElementById('statusLine').textContent = 'Preenche a ligação ao GitHub acima para começar.';
+    return;
+  }
+  try{
+    const {content} = await ghGetFile(cfg);
+    RAW = content;
+    const maxData = RAW.registos.reduce((m,r)=>r.data>m?r.data:m, '');
+    document.getElementById('statusLine').textContent = `Última leitura registada: ${maxData || '—'} · ${RAW.registos.length} registos no total`;
+  }catch(e){
+    document.getElementById('statusLine').textContent = 'Erro a ligar ao GitHub: ' + e.message;
+  }
+}
+
+document.getElementById('btnGuardar').addEventListener('click', async ()=>{
+  const cfg = loadCfg();
+  const msgBox = document.getElementById('resultMsg');
+  msgBox.className = 'msg'; msgBox.style.display='none';
+  if(!cfgComplete(cfg)){ msgBox.className='msg err'; msgBox.textContent='Preenche primeiro a ligação ao GitHub.'; return; }
+
+  const dataISO = document.getElementById('fData').value;
+  if(!dataISO){ msgBox.className='msg err'; msgBox.textContent='Escolhe uma data.'; return; }
+
+  const valores = {};
+  for(const c of CATS){
+    const el = document.getElementById('cat_'+c.key.replace(/\s+/g,'_'));
+    const v = el.value.trim();
+    if(v===''){ msgBox.className='msg err'; msgBox.textContent=`Falta o valor de "${c.key}".`; return; }
+    valores[c.key] = parseInt(v,10);
+  }
+
+  const btn = document.getElementById('btnGuardar');
+  btn.disabled = true; btn.textContent = 'A guardar…';
+  try{
+    const {content, sha} = await ghGetFile(cfg);
+    RAW = content;
+    const {semana, mes} = semanaMesPara(dataISO, RAW.registos);
+
+    // remove eventuais registos já existentes nesta data (permite corrigir) e acrescenta os novos
+    RAW.registos = RAW.registos.filter(r=>r.data !== dataISO);
+    CATS.forEach(c=>{
+      RAW.registos.push({ data:dataISO, categoria:c.key, nTotal:valores[c.key], semana, mes });
+    });
+    RAW.atualizadoEm = new Date().toISOString().slice(0,16).replace('T',' ');
+
+    await ghPutFile(cfg, RAW, sha, `Leitura manual ${dataISO}`);
+    msgBox.className = 'msg ok';
+    msgBox.textContent = `Guardado: ${dataISO} (${mes}, ${semana}). O site atualiza no próximo carregamento.`;
+  }catch(e){
+    msgBox.className = 'msg err';
+    msgBox.textContent = 'Erro: ' + e.message;
+  }finally{
+    btn.disabled = false; btn.textContent = 'Guardar leitura';
+  }
+});
+
+boot();
+</script>
+</body>
+</html>
