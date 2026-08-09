@@ -181,6 +181,7 @@ const COLORS = {
 const CAT_ORDER = ['Carpinteiros','Ferrageiros','Especialidades','Gesso Cartonado','Total Em Obra'];
 const MESES_ABREV = {'Janeiro':'jan','Fevereiro':'fev','Março':'mar','Abril':'abr','Maio':'mai','Junho':'jun','Julho':'jul','Agosto':'ago','Setembro':'set','Outubro':'out','Novembro':'nov','Dezembro':'dez'};
 const MESES_ARR = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+const MESES_ABREV_KEYS = MESES_ARR;
 
 let RAW = null;
 let activeTab = 'diaria';
@@ -354,6 +355,51 @@ function registerPluginsOnce(){
       ctx.restore();
     }
   });
+  Chart.register({
+    id: 'groupAxis',
+    afterDraw(chart){
+      const groups = chart.data.groups;
+      const {ctx, chartArea, scales} = chart;
+      const xScale = scales.x;
+      if(groups && groups.length){
+        const yLine = chartArea.bottom + 18;
+        const yText = chartArea.bottom + 30;
+        ctx.save();
+        ctx.strokeStyle = 'rgba(0,0,0,0.4)';
+        ctx.lineWidth = 1;
+        ctx.font = "600 10px 'IBM Plex Mono', monospace";
+        ctx.fillStyle = '#000000';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        let i = 0;
+        while(i < groups.length){
+          let j = i;
+          while(j+1 < groups.length && groups[j+1] === groups[i]) j++;
+          const xStart = xScale.getPixelForValue(i);
+          const xEnd = xScale.getPixelForValue(j);
+          ctx.setLineDash([2,3]);
+          ctx.beginPath();
+          ctx.moveTo(Math.max(xStart, chartArea.left), yLine);
+          ctx.lineTo(Math.min(xEnd, chartArea.right), yLine);
+          ctx.stroke();
+          ctx.setLineDash([]);
+          ctx.fillText(groups[i], (xStart+xEnd)/2, yText);
+          i = j+1;
+        }
+        ctx.restore();
+      }
+      if(chart.data.axisTitle){
+        ctx.save();
+        ctx.font = "600 11px 'Barlow Condensed', sans-serif";
+        ctx.fillStyle = '#000000';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        const yTitle = groups && groups.length ? chartArea.bottom + 46 : chartArea.bottom + 24;
+        ctx.fillText(chart.data.axisTitle, (chartArea.left+chartArea.right)/2, yTitle);
+        ctx.restore();
+      }
+    }
+  });
   pluginsRegistered = true;
 }
 
@@ -401,7 +447,7 @@ function computeAxisRanges(datasets){
   return { split:true, yMax, y1Min, y1Max };
 }
 
-function drawChart(labels, datasets){
+function drawChart(labels, datasets, groups, axisTitle){
   registerPluginsOnce();
   const wrap = document.getElementById('chartwrap');
   wrap.innerHTML = '<canvas id="lineChart"></canvas>';
@@ -412,20 +458,21 @@ function drawChart(labels, datasets){
   const ctx = document.getElementById('lineChart');
   if(mainChart) mainChart.destroy();
   const ranges = computeAxisRanges(datasets);
+  const bottomPad = groups ? 56 : 34;
   mainChart = new Chart(ctx, {
     type:'line',
-    data:{ labels, datasets },
+    data:{ labels, datasets, groups, axisTitle },
     options:{
       responsive:true, maintainAspectRatio:false,
-      layout:{ padding:{ right:82, top:26, bottom:4 } },
+      layout:{ padding:{ right:82, top:26, bottom:bottomPad } },
       interaction:{ mode:'index', intersect:false },
       plugins:{ legend:{ display:false }, tooltip:{
         titleFont:{family:"'IBM Plex Mono'",size:12}, bodyFont:{family:"'IBM Plex Mono'",size:12}
       } },
       scales:{
-        x:{ grid:{display:false}, ticks:{font:{family:"'IBM Plex Mono'",size:11.5}, color:'#16324F'} },
+        x:{ grid:{display:false}, ticks:{font:{family:"'IBM Plex Mono'",size:11.5}, color:'#000000'} },
         y:{ position:'left', min:0, max: ranges.split ? ranges.yMax : undefined, beginAtZero:true,
-            grid:{color:'#EDE8DA'}, ticks:{font:{family:"'IBM Plex Mono'",size:11.5}, color:'#16324F'} },
+            grid:{color:'#EDE8DA'}, ticks:{font:{family:"'IBM Plex Mono'",size:11.5}, color:'#000000'} },
         y1:{ position:'right', min: ranges.split ? ranges.y1Min : undefined, max: ranges.split ? ranges.y1Max : undefined,
             grid:{display:false}, ticks:{display:false} } // sem números à direita — evita sobrepor as etiquetas de categoria
       }
@@ -468,7 +515,12 @@ function renderDiaria(rows){
   const dateSet = new Set(dates);
   const rowsForChart = RAW.registos.filter(r=>dateSet.has(r.data));
   const map = groupSum(rowsForChart, r=>r.data);
-  drawChart(dates.map(fmtDateShort), buildDatasets(map, dates));
+  const labels = dates.map(d=> new Date(d+'T00:00:00').getDate());
+  const groups = dates.map(d=>{
+    const dt = new Date(d+'T00:00:00');
+    return MESES_ABREV_KEYS[dt.getMonth()];
+  });
+  drawChart(labels, buildDatasets(map, dates), groups, 'Dia');
 }
 
 function renderSemanal(rows){
@@ -481,6 +533,7 @@ function renderSemanal(rows){
     return ra.data.localeCompare(rb.data);
   });
   const avgMap = new Map();
+  const groups = [];
   const labels = weeks.map(w=>{
     const [mes,sem] = w.split('|');
     const rr = rows.filter(r=>r.mes===mes && r.semana===sem);
@@ -491,9 +544,10 @@ function renderSemanal(rows){
       o[c] = dias.length? Math.round(dias.reduce((s,d)=>s+cr.filter(r=>r.data===d).reduce((s2,r)=>s2+r.nTotal,0),0)/dias.length) : null;
     });
     avgMap.set(w,o);
-    return sem.replace('Semana','S') + ' ' + MESES_ABREV[mes];
+    groups.push(mes.toLowerCase());
+    return sem;
   });
-  drawChart(labels, buildDatasets(avgMap, weeks));
+  drawChart(labels, buildDatasets(avgMap, weeks), groups, 'Semana');
 }
 
 function renderMensal(){
@@ -513,7 +567,7 @@ function renderMensal(){
     });
     avgMap.set(mes,o);
   });
-  drawChart(months.map(m=>MESES_ABREV[m]), buildDatasets(avgMap, months));
+  drawChart(months.map(m=>MESES_ABREV[m]), buildDatasets(avgMap, months), null, 'Mês');
 }
 
 boot();
