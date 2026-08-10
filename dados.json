@@ -1,5 +1,5 @@
 {
- "atualizadoEm": "2026-08-10 19:33",
+ "atualizadoEm": "2026-08-10 19:35",
  "registos": [
   {
    "data": "2026-01-02",
@@ -4321,13 +4321,6 @@
    "mes": "Julho"
   },
   {
-   "data": "2026-07-31",
-   "categoria": "Total Em Obra",
-   "nTotal": 169,
-   "semana": "Semana 5",
-   "mes": "Julho"
-  },
-  {
    "data": "2026-08-03",
    "categoria": "Total Em Obra",
    "nTotal": 163,
@@ -4368,6 +4361,13 @@
    "nTotal": 155,
    "semana": "Semana 3",
    "mes": "Agosto"
+  },
+  {
+   "data": "2026-07-31",
+   "categoria": "Total Em Obra",
+   "nTotal": 167,
+   "semana": "Semana 5",
+   "mes": "Julho"
   }
  ]
 }
