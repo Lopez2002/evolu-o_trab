@@ -94,7 +94,7 @@
     margin:0 0 2px;letter-spacing:.01em;
   }
   .panel .sub{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--steel);margin-bottom:8px;display:block;}
-  .chartwrap{position:relative;height:460px;}
+  .chartwrap{position:relative;height:760px;}
   canvas{max-width:100%;}
 
   footer{
@@ -103,7 +103,7 @@
   }
 
   @media (max-width:700px){
-    .chartwrap{height:360px;}
+    .chartwrap{height:600px;}
     .filterbar .flabel{min-width:auto;width:100%;margin-bottom:-4px;}
   }
   .loading, .errbox{padding:40px 0;font-family:'IBM Plex Mono',monospace;color:var(--steel);text-align:center;}
@@ -305,7 +305,7 @@ function registerPluginsOnce(){
         }
       }
       ctx.save();
-      ctx.font = "600 9px 'Inter', sans-serif";
+      ctx.font = "600 7.5px 'Inter', sans-serif";
       ctx.textBaseline = 'middle';
       ctx.textAlign = 'left';
       items.forEach(it=>{
@@ -326,7 +326,7 @@ function registerPluginsOnce(){
       const {ctx, chartArea} = chart;
 
       // largura mínima necessária por ponto para caber um número de cada série sem se sobrepor ao ponto vizinho
-      const minPxPerPoint = 15 * visibleDatasets.length;
+      const minPxPerPoint = 12 * visibleDatasets.length;
       const available = (chartArea.right - chartArea.left) / Math.max(nPoints-1,1);
       const step = Math.max(1, Math.ceil(minPxPerPoint / Math.max(available,1)));
 
@@ -336,7 +336,7 @@ function registerPluginsOnce(){
       showIdx.add(nPoints-1); // garante sempre o primeiro e o último ponto
 
       ctx.save();
-      ctx.font = "600 9px 'IBM Plex Mono', monospace";
+      ctx.font = "600 7.5px 'IBM Plex Mono', monospace";
       ctx.textAlign = 'center';
       // para cada ponto visível no eixo X, resolve colisões entre as etiquetas das várias séries nesse ponto
       showIdx.forEach(idx=>{
@@ -350,7 +350,7 @@ function registerPluginsOnce(){
           col.push({ y: point.y - 6, x: point.x, text: String(Math.round(v)), color: ds.borderColor });
         });
         col.sort((a,b)=>a.y-b.y);
-        const MIN_GAP = 11;
+        const MIN_GAP = 9;
         for(let k=col.length-2;k>=0;k--){
           if(col[k+1].y - col[k].y < MIN_GAP){
             col[k].y = col[k+1].y - MIN_GAP;
@@ -428,7 +428,7 @@ function buildDatasets(map, keys){
   return CAT_ORDER.filter(c=>activeCats.has(c)).map(cat=>({
     label:cat, data:keys.map(k=> (map.get(k)||{})[cat] ?? null),
     borderColor:COLORS[cat], backgroundColor:COLORS[cat],
-    tension:.25, pointRadius:0, pointHoverRadius:4, pointHitRadius:10, borderWidth: cat==='Total Em Obra'?3:2.25,
+    tension:.25, pointRadius:0, pointHoverRadius:4, pointHitRadius:10, borderWidth: cat==='Total Em Obra'?2.25:1.5,
     spanGaps:true, yAxisID: cat==='Total Em Obra' ? 'y1' : 'y'
   }));
 }
@@ -478,9 +478,9 @@ function drawChart(labels, datasets, groups, axisTitle){
       interaction:{ mode:'nearest', intersect:false },
       plugins:{ legend:{ display:false }, tooltip:{ enabled:false } },
       scales:{
-        x:{ grid:{display:false}, ticks:{font:{family:"'IBM Plex Mono'",size:11.5}, color:'#000000'} },
+        x:{ grid:{display:false}, ticks:{font:{family:"'IBM Plex Mono'",size:10}, color:'#000000'} },
         y:{ position:'left', min:0, max: ranges.split ? ranges.yMax : undefined, beginAtZero:true,
-            grid:{color:'#EDE8DA'}, ticks:{font:{family:"'IBM Plex Mono'",size:11.5}, color:'#000000'} },
+            grid:{color:'#EDE8DA'}, ticks:{font:{family:"'IBM Plex Mono'",size:10}, color:'#000000'} },
         y1:{ position:'right', min: ranges.split ? ranges.y1Min : undefined, max: ranges.split ? ranges.y1Max : undefined,
             grid:{display:false}, ticks:{display:false} } // sem números à direita — evita sobrepor as etiquetas de categoria
       }
