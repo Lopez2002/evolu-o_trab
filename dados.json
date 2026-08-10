@@ -4158,6 +4158,34 @@
    "nTotal": 18,
    "semana": "Semana 1",
    "mes": "Agosto"
+  },
+  {
+   "data": "2026-08-04",
+   "categoria": "Carpinteiros",
+   "nTotal": 21,
+   "semana": "Semana 1",
+   "mes": "Agosto"
+  },
+  {
+   "data": "2026-08-04",
+   "categoria": "Ferrageiros",
+   "nTotal": 24,
+   "semana": "Semana 1",
+   "mes": "Agosto"
+  },
+  {
+   "data": "2026-08-04",
+   "categoria": "Especialidades",
+   "nTotal": 25,
+   "semana": "Semana 1",
+   "mes": "Agosto"
+  },
+  {
+   "data": "2026-08-04",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 21,
+   "semana": "Semana 1",
+   "mes": "Agosto"
   }
  ]
 }
