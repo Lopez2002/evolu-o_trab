@@ -1,5 +1,5 @@
 {
- "atualizadoEm": "2026-08-10 10:16",
+ "atualizadoEm": "2026-08-10 10:22",
  "registos": [
   {
    "data": "2026-01-02",
@@ -4017,6 +4017,34 @@
    "categoria": "Total Em Obra",
    "nTotal": 157,
    "semana": "Semana 4",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-28",
+   "categoria": "Carpinteiros",
+   "nTotal": 26,
+   "semana": "Semana 5",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-28",
+   "categoria": "Ferrageiros",
+   "nTotal": 26,
+   "semana": "Semana 5",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-28",
+   "categoria": "Especialidades",
+   "nTotal": 20,
+   "semana": "Semana 5",
+   "mes": "Julho"
+  },
+  {
+   "data": "2026-07-28",
+   "categoria": "Gesso Cartonado",
+   "nTotal": 19,
+   "semana": "Semana 5",
    "mes": "Julho"
   }
  ]
