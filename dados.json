@@ -1,5 +1,5 @@
 {
- "atualizadoEm": "2026-08-10 12:54",
+ "atualizadoEm": "2026-08-10 12:56",
  "registos": [
   {
    "data": "2026-01-02",
@@ -4352,6 +4352,13 @@
    "data": "2026-08-05",
    "categoria": "Total Em Obra",
    "nTotal": 158,
+   "semana": "Semana 2",
+   "mes": "Agosto"
+  },
+  {
+   "data": "2026-08-06",
+   "categoria": "Total Em Obra",
+   "nTotal": 159,
    "semana": "Semana 2",
    "mes": "Agosto"
   }
