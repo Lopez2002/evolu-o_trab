@@ -89,6 +89,15 @@
     <div class="msg" id="resultMsg"></div>
   </div>
 
+  <div class="panel">
+    <h2>3. Remover uma leitura</h2>
+    <span class="sub">Para corrigir um dia inserido por engano — apaga todas as categorias desse dia</span>
+    <label>Data a remover</label>
+    <input type="date" id="fDataRemover">
+    <button type="button" id="btnRemover" style="background:var(--rebar);">Remover leitura deste dia</button>
+    <div class="msg" id="removerMsg"></div>
+  </div>
+
 </main>
 <script>
 const CATS = [
@@ -263,6 +272,42 @@ document.getElementById('btnGuardar').addEventListener('click', async ()=>{
     msgBox.textContent = 'Erro: ' + e.message;
   }finally{
     btn.disabled = false; btn.textContent = 'Guardar leitura';
+  }
+});
+
+document.getElementById('btnRemover').addEventListener('click', async ()=>{
+  const cfg = loadCfg();
+  const msgBox = document.getElementById('removerMsg');
+  msgBox.className = 'msg'; msgBox.style.display='';
+  if(!cfgComplete(cfg)){ msgBox.className='msg err'; msgBox.textContent='Preenche primeiro a ligação ao GitHub.'; return; }
+
+  const dataISO = document.getElementById('fDataRemover').value;
+  if(!dataISO){ msgBox.className='msg err'; msgBox.textContent='Escolhe uma data.'; return; }
+
+  if(!confirm(`Tens a certeza que queres remover TODOS os valores do dia ${dataISO}? Esta ação não pode ser desfeita.`)) return;
+
+  const btnR = document.getElementById('btnRemover');
+  btnR.disabled = true; btnR.textContent = 'A remover…';
+  try{
+    const {content, sha} = await ghGetFile(cfg);
+    RAW = content;
+    const antes = RAW.registos.length;
+    RAW.registos = RAW.registos.filter(r=>r.data !== dataISO);
+    const removidos = antes - RAW.registos.length;
+    if(removidos===0){
+      msgBox.className = 'msg info';
+      msgBox.textContent = `Não havia nenhum registo para ${dataISO}.`;
+    }else{
+      RAW.atualizadoEm = new Date().toISOString().slice(0,16).replace('T',' ');
+      await ghPutFile(cfg, RAW, sha, `Remoção manual ${dataISO}`);
+      msgBox.className = 'msg ok';
+      msgBox.textContent = `Removidos ${removidos} registo(s) de ${dataISO}.`;
+    }
+  }catch(e){
+    msgBox.className = 'msg err';
+    msgBox.textContent = 'Erro: ' + e.message;
+  }finally{
+    btnR.disabled = false; btnR.textContent = 'Remover leitura deste dia';
   }
 });
 
