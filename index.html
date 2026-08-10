@@ -94,7 +94,8 @@
     margin:0 0 2px;letter-spacing:.01em;
   }
   .panel .sub{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--steel);margin-bottom:8px;display:block;}
-  .chartwrap{position:relative;height:760px;}
+  .chartwrap{position:relative;height:760px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;}
+  .chartinner{position:relative;height:100%;}
   canvas{max-width:100%;}
 
   footer{
@@ -326,17 +327,9 @@ function registerPluginsOnce(){
         .filter(({i})=>{ const m=chart.getDatasetMeta(i); return m && !m.hidden; });
       const nPoints = chart.data.labels.length;
       if(visibleDatasets.length===0 || nPoints===0) return;
-      const {ctx, chartArea} = chart;
-
-      // largura mínima necessária por ponto para caber um número de cada série sem se sobrepor ao ponto vizinho
-      const minPxPerPoint = 10 * visibleDatasets.length;
-      const available = (chartArea.right - chartArea.left) / Math.max(nPoints-1,1);
-      const step = Math.max(1, Math.ceil(minPxPerPoint / Math.max(available,1)));
-
+      const {ctx} = chart;
       const showIdx = new Set();
-      for(let idx=0; idx<nPoints; idx+=step) showIdx.add(idx);
-      showIdx.add(0);
-      showIdx.add(nPoints-1); // garante sempre o primeiro e o último ponto
+      for(let idx=0; idx<nPoints; idx++) showIdx.add(idx);
 
       ctx.save();
       ctx.font = "600 6.5px 'IBM Plex Mono', monospace";
@@ -463,7 +456,9 @@ function computeAxisRanges(datasets){
 function drawChart(labels, datasets, groups, axisTitle){
   registerPluginsOnce();
   const wrap = document.getElementById('chartwrap');
-  wrap.innerHTML = '<canvas id="lineChart"></canvas>';
+  const mobile = isMobile();
+  const minWidth = mobile ? Math.max(wrap.clientWidth, labels.length * 30) : wrap.clientWidth;
+  wrap.innerHTML = `<div class="chartinner" style="min-width:${minWidth}px;"><canvas id="lineChart"></canvas></div>`;
   if(typeof Chart === 'undefined'){
     wrap.innerHTML = '<div class="errbox">Não foi possível carregar a biblioteca de gráficos (rede bloqueou todas as fontes tentadas). Fala com o teu departamento de TI, ou abre o site noutra rede/navegador.</div>';
     return;
@@ -489,6 +484,8 @@ function drawChart(labels, datasets, groups, axisTitle){
       }
     }
   });
+  // ao abrir, mostra sempre o fim (dados mais recentes) — quem quiser vê o resto fazendo scroll para trás
+  wrap.scrollLeft = wrap.scrollWidth;
 }
 
 function render(){
@@ -515,11 +512,6 @@ function getDiariaDates(rows){
     const endIdx = allDates.indexOf(endDate);
     const startIdx = Math.max(0, endIdx - DIARIA_TARGET_DIAS + 1);
     dates = allDates.slice(startIdx, endIdx+1);
-  }
-  if(isMobile()){
-    // no telemóvel não cabem todos — mostra sempre os últimos dias disponíveis, seguidos
-    const allDates = [...new Set(RAW.registos.map(r=>r.data))].sort();
-    dates = allDates.slice(-MOBILE_DIARIA_DIAS);
   }
   return dates;
 }
@@ -548,9 +540,6 @@ function renderSemanal(rows){
     const rb = rows.find(r=>(r.mes+'|'+r.semana)===b);
     return ra.data.localeCompare(rb.data);
   });
-  if(isMobile() && weeks.length > MOBILE_SEMANAL_SEMANAS){
-    weeks = weeks.slice(-MOBILE_SEMANAL_SEMANAS);
-  }
   const avgMap = new Map();
   const groups = [];
   const labels = weeks.map(w=>{
