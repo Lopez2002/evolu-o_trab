@@ -89,9 +89,9 @@
   main{padding:26px 5vw 50px;max-width:1150px;margin:0 auto;}
 
   .panel{background:#fff;border:1px solid var(--line);padding:22px 26px 18px;}
-  .panel.chart-panel{background:var(--navy);border-color:var(--navy);}
-  .panel.chart-panel h2{color:#F5F2EA;}
-  .panel.chart-panel .sub{color:rgba(245,242,234,0.6);}
+  .panel.chart-panel{background:#fff;border-color:var(--line);}
+  .panel.chart-panel h2{color:var(--ink);}
+  .panel.chart-panel .sub{color:var(--steel);}
   .panel h2{
     font-family:'Barlow Condensed',sans-serif;font-size:23px;font-weight:600;
     margin:0 0 2px;letter-spacing:.01em;
@@ -413,10 +413,10 @@ function registerPluginsOnce(){
         const yLine = chartArea.bottom + 18;
         const yText = chartArea.bottom + 30;
         ctx.save();
-        ctx.strokeStyle = 'rgba(245,242,234,0.45)';
+        ctx.strokeStyle = 'rgba(0,0,0,0.4)';
         ctx.lineWidth = 1;
         ctx.font = "600 10px 'IBM Plex Mono', monospace";
-        ctx.fillStyle = '#F5F2EA';
+        ctx.fillStyle = '#000000';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         let i = 0;
@@ -439,7 +439,7 @@ function registerPluginsOnce(){
       if(chart.data.axisTitle){
         ctx.save();
         ctx.font = "600 11px 'Barlow Condensed', sans-serif";
-        ctx.fillStyle = '#F5F2EA';
+        ctx.fillStyle = '#000000';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         const yTitle = groups && groups.length ? chartArea.bottom + 46 : chartArea.bottom + 24;
@@ -548,9 +548,9 @@ function drawChart(labels, datasets, groups, axisTitle){
       interaction:{ mode:'nearest', intersect:false },
       plugins:{ legend:{ display:false }, tooltip:{ enabled:false } },
       scales:{
-        x:{ grid:{display:false}, ticks:{font:{family:"'IBM Plex Mono'",size:9}, color:'#F5F2EA'} },
+        x:{ grid:{display:false}, ticks:{font:{family:"'IBM Plex Mono'",size:9}, color:'#000000'} },
         y:{ position:'left', min:0, max: ranges.split ? ranges.yMax : undefined, beginAtZero:true,
-            grid:{color:'rgba(245,242,234,0.14)'}, ticks:{font:{family:"'IBM Plex Mono'",size:9}, color:'#F5F2EA'} },
+            grid:{color:'rgba(0,0,0,0.12)', borderDash:[3,3]}, ticks:{font:{family:"'IBM Plex Mono'",size:9}, color:'#000000'} },
         y1:{ position:'right', min: ranges.split ? ranges.y1Min : undefined, max: ranges.split ? ranges.y1Max : undefined,
             grid:{display:false}, ticks:{display:false} } // sem números à direita — evita sobrepor as etiquetas de categoria
       }
