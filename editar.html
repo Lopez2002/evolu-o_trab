@@ -81,6 +81,7 @@
 
     <label>Data</label>
     <input type="date" id="fData">
+    <p class="sub" style="margin:-8px 0 4px;">Preenche só as categorias que tiveres — deixa em branco o resto.</p>
 
     <div id="catInputs"></div>
 
@@ -91,11 +92,11 @@
 </main>
 <script>
 const CATS = [
-  {key:'Carpinteiros', color:'#E8A33D'},
-  {key:'Ferrageiros', color:'#5B6B7C'},
-  {key:'Especialidades', color:'#C1443A'},
-  {key:'Gesso Cartonado', color:'#16324F'},
-  {key:'Total Em Obra', color:'#1B1B1B'}
+  {key:'Carpinteiros', color:'#2F8FE0'},
+  {key:'Ferrageiros', color:'#E8748A'},
+  {key:'Especialidades', color:'#D4A017'},
+  {key:'Gesso Cartonado', color:'#E08A3C'},
+  {key:'Total Em Obra', color:'#D954A6'}
 ];
 const MESES = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
 
@@ -146,8 +147,21 @@ function buildCatInputs(){
 
 let RAW = null;
 
+function fetchComTimeout(url, options, ms=15000){
+  const ctrl = new AbortController();
+  const id = setTimeout(()=>ctrl.abort(), ms);
+  return fetch(url, {...options, signal: ctrl.signal})
+    .catch(e=>{
+      if(e.name === 'AbortError'){
+        throw new Error('A ligação ao GitHub demorou demais a responder (mais de '+(ms/1000)+'s). A tua rede pode estar a bloquear api.github.com — experimenta noutra rede (ex: dados móveis) para confirmar.');
+      }
+      throw new Error('Falha de rede a contactar o GitHub: ' + e.message);
+    })
+    .finally(()=>clearTimeout(id));
+}
+
 async function ghGetFile(cfg){
-  const res = await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/dados.json`, {
+  const res = await fetchComTimeout(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/dados.json`, {
     headers:{ Authorization:`Bearer ${cfg.token}`, 'Accept':'application/vnd.github+json' }
   });
   if(!res.ok) throw new Error('Não consegui ler dados.json no GitHub (HTTP '+res.status+'). Confirma utilizador, repositório e token.');
@@ -158,7 +172,7 @@ async function ghGetFile(cfg){
 
 async function ghPutFile(cfg, content, sha, message){
   const body = { message, content: b64EncodeUtf8(JSON.stringify(content, null, 1)), sha };
-  const res = await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/dados.json`, {
+  const res = await fetchComTimeout(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/dados.json`, {
     method:'PUT',
     headers:{ Authorization:`Bearer ${cfg.token}`, 'Content-Type':'application/json' },
     body: JSON.stringify(body)
@@ -210,7 +224,7 @@ async function boot(){
 document.getElementById('btnGuardar').addEventListener('click', async ()=>{
   const cfg = loadCfg();
   const msgBox = document.getElementById('resultMsg');
-  msgBox.className = 'msg'; msgBox.style.display='none';
+  msgBox.className = 'msg'; msgBox.style.display='';
   if(!cfgComplete(cfg)){ msgBox.className='msg err'; msgBox.textContent='Preenche primeiro a ligação ao GitHub.'; return; }
 
   const dataISO = document.getElementById('fData').value;
@@ -220,8 +234,10 @@ document.getElementById('btnGuardar').addEventListener('click', async ()=>{
   for(const c of CATS){
     const el = document.getElementById('cat_'+c.key.replace(/\s+/g,'_'));
     const v = el.value.trim();
-    if(v===''){ msgBox.className='msg err'; msgBox.textContent=`Falta o valor de "${c.key}".`; return; }
-    valores[c.key] = parseInt(v,10);
+    if(v!=='') valores[c.key] = parseInt(v,10);
+  }
+  if(Object.keys(valores).length===0){
+    msgBox.className='msg err'; msgBox.textContent='Preenche pelo menos uma categoria.'; return;
   }
 
   const btn = document.getElementById('btnGuardar');
@@ -231,16 +247,17 @@ document.getElementById('btnGuardar').addEventListener('click', async ()=>{
     RAW = content;
     const {semana, mes} = semanaMesPara(dataISO, RAW.registos);
 
-    // remove eventuais registos já existentes nesta data (permite corrigir) e acrescenta os novos
-    RAW.registos = RAW.registos.filter(r=>r.data !== dataISO);
-    CATS.forEach(c=>{
-      RAW.registos.push({ data:dataISO, categoria:c.key, nTotal:valores[c.key], semana, mes });
+    // substitui só as categorias preenchidas hoje nesta data; as restantes (se já existiam) mantêm-se intactas
+    RAW.registos = RAW.registos.filter(r => !(r.data === dataISO && Object.prototype.hasOwnProperty.call(valores, r.categoria)));
+    Object.keys(valores).forEach(catKey=>{
+      RAW.registos.push({ data:dataISO, categoria:catKey, nTotal:valores[catKey], semana, mes });
     });
     RAW.atualizadoEm = new Date().toISOString().slice(0,16).replace('T',' ');
 
     await ghPutFile(cfg, RAW, sha, `Leitura manual ${dataISO}`);
     msgBox.className = 'msg ok';
-    msgBox.textContent = `Guardado: ${dataISO} (${mes}, ${semana}). O site atualiza no próximo carregamento.`;
+    const faltam = CATS.map(c=>c.key).filter(k=>!valores.hasOwnProperty(k));
+    msgBox.textContent = `Guardado: ${dataISO} (${mes}, ${semana})${faltam.length ? ' — não incluído: '+faltam.join(', ') : ''}.`;
   }catch(e){
     msgBox.className = 'msg err';
     msgBox.textContent = 'Erro: ' + e.message;
