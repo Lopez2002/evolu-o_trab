@@ -86,7 +86,7 @@
   .chip:hover{border-color:var(--amber-dk);}
   .chip.active{background:var(--navy);border-color:var(--navy);color:var(--paper);}
 
-  main{padding:26px 5vw 50px;max-width:1500px;margin:0 auto;}
+  main{padding:26px 5vw 50px;max-width:1150px;margin:0 auto;}
 
   .panel{background:#fff;border:1px solid var(--line);padding:22px 26px 18px;}
   .panel h2{
@@ -94,7 +94,7 @@
     margin:0 0 2px;letter-spacing:.01em;
   }
   .panel .sub{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--steel);margin-bottom:8px;display:block;}
-  .chartwrap{position:relative;height:520px;}
+  .chartwrap{position:relative;height:680px;}
   canvas{max-width:100%;}
 
   footer{
@@ -103,7 +103,7 @@
   }
 
   @media (max-width:700px){
-    .chartwrap{height:380px;}
+    .chartwrap{height:520px;}
     .filterbar .flabel{min-width:auto;width:100%;margin-bottom:-4px;}
   }
   .loading, .errbox{padding:40px 0;font-family:'IBM Plex Mono',monospace;color:var(--steel);text-align:center;}
@@ -465,10 +465,8 @@ function drawChart(labels, datasets, groups, axisTitle){
     options:{
       responsive:true, maintainAspectRatio:false,
       layout:{ padding:{ right:82, top:26, bottom:bottomPad } },
-      interaction:{ mode:'index', intersect:false },
-      plugins:{ legend:{ display:false }, tooltip:{
-        titleFont:{family:"'IBM Plex Mono'",size:12}, bodyFont:{family:"'IBM Plex Mono'",size:12}
-      } },
+      interaction:{ mode:'nearest', intersect:false },
+      plugins:{ legend:{ display:false }, tooltip:{ enabled:false } },
       scales:{
         x:{ grid:{display:false}, ticks:{font:{family:"'IBM Plex Mono'",size:11.5}, color:'#000000'} },
         y:{ position:'left', min:0, max: ranges.split ? ranges.yMax : undefined, beginAtZero:true,
