@@ -94,6 +94,19 @@
     margin:0 0 2px;letter-spacing:.01em;
   }
   .panel .sub{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--steel);margin-bottom:8px;display:block;}
+
+  .tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  table.datatable{border-collapse:collapse;font-family:'IBM Plex Mono',monospace;font-size:11.5px;white-space:nowrap;}
+  table.datatable th, table.datatable td{padding:6px 10px;border-bottom:1px solid var(--line);text-align:right;}
+  table.datatable thead th{color:var(--steel);font-weight:600;font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;border-bottom:1.5px solid var(--ink);}
+  table.datatable thead tr.tgroup th{color:var(--amber-dk);text-align:center;border-bottom:1px solid var(--line);font-size:10px;}
+  table.datatable th.tcat{text-align:left;font-weight:600;color:var(--ink);position:sticky;left:0;background:#fff;white-space:nowrap;}
+  table.datatable .tdot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;}
+  table.datatable tbody tr:hover td{background:var(--paper-2);}
+  @media (max-width:700px){
+    table.datatable{font-size:10.5px;}
+    table.datatable th, table.datatable td{padding:5px 7px;}
+  }
   .chartwrap{position:relative;height:760px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;}
   .chartinner{position:relative;height:100%;}
   canvas{max-width:100%;}
@@ -453,6 +466,36 @@ function computeAxisRanges(datasets){
   return { split:true, yMax, y1Min, y1Max };
 }
 
+function renderTable(labels, datasets, groups, titulo){
+  document.getElementById('tableTitle').textContent = titulo;
+  const wrap = document.getElementById('tableWrap');
+  if(!datasets.length || !labels.length){ wrap.innerHTML = '<p class="sub">Sem dados para mostrar.</p>'; return; }
+
+  let groupRow = '';
+  if(groups && groups.length===labels.length){
+    let cells = '';
+    let i=0;
+    while(i<groups.length){
+      let j=i;
+      while(j+1<groups.length && groups[j+1]===groups[i]) j++;
+      cells += `<th colspan="${j-i+1}">${groups[i]}</th>`;
+      i = j+1;
+    }
+    groupRow = `<tr class="tgroup"><th></th>${cells}</tr>`;
+  }
+
+  const headerCells = labels.map(l=>`<th>${l}</th>`).join('');
+  const bodyRows = datasets.map(ds=>{
+    const cells = ds.data.map(v=> `<td>${(v===null||v===undefined) ? '—' : Math.round(v)}</td>`).join('');
+    return `<tr><th class="tcat"><span class="tdot" style="background:${ds.borderColor};"></span>${ds.label}</th>${cells}</tr>`;
+  }).join('');
+
+  wrap.innerHTML = `<table class="datatable">
+    <thead>${groupRow}<tr><th></th>${headerCells}</tr></thead>
+    <tbody>${bodyRows}</tbody>
+  </table>`;
+}
+
 function drawChart(labels, datasets, groups, axisTitle){
   registerPluginsOnce();
   const wrap = document.getElementById('chartwrap');
@@ -495,6 +538,11 @@ function render(){
       <h2 id="chartTitle"></h2>
       <span class="sub" id="chartSub"></span>
       <div class="chartwrap" id="chartwrap"></div>
+    </div>
+    <div class="panel" style="margin-top:16px;">
+      <h2 id="tableTitle"></h2>
+      <span class="sub" id="tableSub">Mesmos dados do gráfico, em formato tabela</span>
+      <div id="tableWrap" class="tablewrap"></div>
     </div>`;
 
   const rows = filteredByMonth();
@@ -529,6 +577,7 @@ function renderDiaria(rows){
     return MESES_ABREV_KEYS[dt.getMonth()];
   });
   drawChart(labels, buildDatasets(map, dates), groups, 'Dia');
+  renderTable(labels, buildDatasets(map, dates), groups, 'Evolução diária');
 }
 
 function renderSemanal(rows){
@@ -556,6 +605,7 @@ function renderSemanal(rows){
     return sem;
   });
   drawChart(labels, buildDatasets(avgMap, weeks), groups, 'Semana');
+  renderTable(labels, buildDatasets(avgMap, weeks), groups, 'Evolução semanal (médias)');
 }
 
 function renderMensal(){
@@ -576,6 +626,7 @@ function renderMensal(){
     avgMap.set(mes,o);
   });
   drawChart(months.map(m=>MESES_ABREV[m]), buildDatasets(avgMap, months), null, 'Mês');
+  renderTable(months.map(m=>MESES_ABREV[m]), buildDatasets(avgMap, months), null, 'Evolução mensal (médias)');
 }
 
 boot();
