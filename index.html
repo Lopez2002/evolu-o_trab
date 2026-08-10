@@ -192,6 +192,9 @@ let monthsCustomized = false;
 let mainChart = null;
 let pluginsRegistered = false;
 const DIARIA_TARGET_DIAS = 22;
+const MOBILE_DIARIA_DIAS = 10;
+const MOBILE_SEMANAL_SEMANAS = 4;
+function isMobile(){ return window.matchMedia('(max-width:700px)').matches; }
 
 function fmtDateShort(iso){
   const d = new Date(iso+'T00:00:00');
@@ -305,7 +308,7 @@ function registerPluginsOnce(){
         }
       }
       ctx.save();
-      ctx.font = "600 7.5px 'Inter', sans-serif";
+      ctx.font = "600 6.5px 'Inter', sans-serif";
       ctx.textBaseline = 'middle';
       ctx.textAlign = 'left';
       items.forEach(it=>{
@@ -326,7 +329,7 @@ function registerPluginsOnce(){
       const {ctx, chartArea} = chart;
 
       // largura mínima necessária por ponto para caber um número de cada série sem se sobrepor ao ponto vizinho
-      const minPxPerPoint = 12 * visibleDatasets.length;
+      const minPxPerPoint = 10 * visibleDatasets.length;
       const available = (chartArea.right - chartArea.left) / Math.max(nPoints-1,1);
       const step = Math.max(1, Math.ceil(minPxPerPoint / Math.max(available,1)));
 
@@ -336,7 +339,7 @@ function registerPluginsOnce(){
       showIdx.add(nPoints-1); // garante sempre o primeiro e o último ponto
 
       ctx.save();
-      ctx.font = "600 7.5px 'IBM Plex Mono', monospace";
+      ctx.font = "600 6.5px 'IBM Plex Mono', monospace";
       ctx.textAlign = 'center';
       // para cada ponto visível no eixo X, resolve colisões entre as etiquetas das várias séries nesse ponto
       showIdx.forEach(idx=>{
@@ -350,7 +353,7 @@ function registerPluginsOnce(){
           col.push({ y: point.y - 6, x: point.x, text: String(Math.round(v)), color: ds.borderColor });
         });
         col.sort((a,b)=>a.y-b.y);
-        const MIN_GAP = 9;
+        const MIN_GAP = 8;
         for(let k=col.length-2;k>=0;k--){
           if(col[k+1].y - col[k].y < MIN_GAP){
             col[k].y = col[k+1].y - MIN_GAP;
@@ -478,9 +481,9 @@ function drawChart(labels, datasets, groups, axisTitle){
       interaction:{ mode:'nearest', intersect:false },
       plugins:{ legend:{ display:false }, tooltip:{ enabled:false } },
       scales:{
-        x:{ grid:{display:false}, ticks:{font:{family:"'IBM Plex Mono'",size:10}, color:'#000000'} },
+        x:{ grid:{display:false}, ticks:{font:{family:"'IBM Plex Mono'",size:9}, color:'#000000'} },
         y:{ position:'left', min:0, max: ranges.split ? ranges.yMax : undefined, beginAtZero:true,
-            grid:{color:'#EDE8DA'}, ticks:{font:{family:"'IBM Plex Mono'",size:10}, color:'#000000'} },
+            grid:{color:'#EDE8DA'}, ticks:{font:{family:"'IBM Plex Mono'",size:9}, color:'#000000'} },
         y1:{ position:'right', min: ranges.split ? ranges.y1Min : undefined, max: ranges.split ? ranges.y1Max : undefined,
             grid:{display:false}, ticks:{display:false} } // sem números à direita — evita sobrepor as etiquetas de categoria
       }
@@ -513,6 +516,11 @@ function getDiariaDates(rows){
     const startIdx = Math.max(0, endIdx - DIARIA_TARGET_DIAS + 1);
     dates = allDates.slice(startIdx, endIdx+1);
   }
+  if(isMobile()){
+    // no telemóvel não cabem todos — mostra sempre os últimos dias disponíveis, seguidos
+    const allDates = [...new Set(RAW.registos.map(r=>r.data))].sort();
+    dates = allDates.slice(-MOBILE_DIARIA_DIAS);
+  }
   return dates;
 }
 
@@ -534,12 +542,15 @@ function renderDiaria(rows){
 function renderSemanal(rows){
   document.getElementById('chartTitle').textContent = 'Evolução semanal por categoria';
   document.getElementById('chartSub').textContent = 'Média de trabalhadores por semana — meses selecionados';
-  const weeks = [...new Set(rows.map(r=>r.mes+'|'+r.semana))];
+  let weeks = [...new Set(rows.map(r=>r.mes+'|'+r.semana))];
   weeks.sort((a,b)=>{
     const ra = rows.find(r=>(r.mes+'|'+r.semana)===a);
     const rb = rows.find(r=>(r.mes+'|'+r.semana)===b);
     return ra.data.localeCompare(rb.data);
   });
+  if(isMobile() && weeks.length > MOBILE_SEMANAL_SEMANAS){
+    weeks = weeks.slice(-MOBILE_SEMANAL_SEMANAS);
+  }
   const avgMap = new Map();
   const groups = [];
   const labels = weeks.map(w=>{
