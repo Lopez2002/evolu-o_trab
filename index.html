@@ -89,6 +89,7 @@
   main{padding:26px 5vw 50px;max-width:1150px;margin:0 auto;}
 
   .panel{background:#fff;border:1px solid var(--line);padding:22px 26px 18px;}
+  .panel.chart-panel{background:#EEF0F1;}
   .panel h2{
     font-family:'Barlow Condensed',sans-serif;font-size:23px;font-weight:600;
     margin:0 0 2px;letter-spacing:.01em;
@@ -547,7 +548,7 @@ function drawChart(labels, datasets, groups, axisTitle){
       scales:{
         x:{ grid:{display:false}, ticks:{font:{family:"'IBM Plex Mono'",size:9}, color:'#000000'} },
         y:{ position:'left', min:0, max: ranges.split ? ranges.yMax : undefined, beginAtZero:true,
-            grid:{color:'#EDE8DA'}, ticks:{font:{family:"'IBM Plex Mono'",size:9}, color:'#000000'} },
+            grid:{color:'rgba(0,0,0,0.09)'}, ticks:{font:{family:"'IBM Plex Mono'",size:9}, color:'#000000'} },
         y1:{ position:'right', min: ranges.split ? ranges.y1Min : undefined, max: ranges.split ? ranges.y1Max : undefined,
             grid:{display:false}, ticks:{display:false} } // sem números à direita — evita sobrepor as etiquetas de categoria
       }
@@ -560,7 +561,7 @@ function drawChart(labels, datasets, groups, axisTitle){
 function render(){
   const main = document.getElementById('main');
   main.innerHTML = `
-    <div class="panel">
+    <div class="panel chart-panel">
       <h2 id="chartTitle"></h2>
       <span class="sub" id="chartSub"></span>
       <div class="chartwrap" id="chartwrap"></div>
